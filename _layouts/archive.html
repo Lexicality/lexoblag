@@ -1,0 +1,53 @@
+---
+layout: base
+---
+
+<div role="feed" aria-labelledby="archive-title">
+	<header>
+		<h1 id="archive-title">{{ page.title }}</h1>
+
+		{{ content }}
+	</header>
+
+	{% assign post_num = paginator.page | minus: 1 | times: paginator.per_page %}
+	{% assign total_posts = paginator.per_page | times: paginator.total_pages %}
+
+	{% for post in paginator.posts %}
+		{% assign id = post.id | create_id %}
+		<article
+			itemscope
+			itemtype="https://schema.org/BlogPosting"
+			tabindex="0"
+			id="{{ id }}"
+			aria-labelledby="{{ id }}-title"
+			aria-describedby="{{ id }}-desc"
+			aria-setsize="{{ total_posts }}"
+			aria-posinset={{ post_num | plus: forloop.index }}
+		>
+			<h2 itemprop="headline" id="{{ id }}-title">
+				<a itemprop="url" href="{{ post.url}}">{{ post.title | escape }}</a>
+			</h2>
+
+			<div id="{{ id }}-desc">
+				{{ post.excerpt }}
+			</div>
+
+			{% if post.excerpt != post.content %}
+				<br>
+				<a href="{{ post.url }}">Continue reading</a>
+			{% endif %}
+		</article>
+	{% endfor %}
+
+	<nav>
+	{% if paginator.previous_page %}
+	<a href='{{ site.url }}{{ paginator.previous_page_path }}'>Previous</a>
+	{% endif %}
+
+	&mdash; {{ paginator.page }} of {{ paginator.total_pages }} &mdash;
+
+	{% if paginator.next_page %}
+	<a href='{{ site.url }}{{ paginator.next_page_path }}'>Next</a>
+	{% endif %}
+	</nav>
+</div>

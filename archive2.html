@@ -1,0 +1,20 @@
+---
+title: All Posts
+layout: page
+permalink: /blog/archive/
+---
+
+<ol>
+{% for post in site.posts %}
+	{% assign id = post.id | create_id %}
+	{% assign category = post.categories | first %}
+	<li
+		id="{{ id }}"
+		data-category="{{ category | escape }}"
+	>
+		<a href="{{ post.url }}">
+			{{ category | entitle | escape }}: {{ post.title | escape}}
+		</a>
+	</li>
+{% endfor %}
+</ol>
