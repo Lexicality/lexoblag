@@ -15,11 +15,11 @@
 	}
 
 	li + li {
-		margin-left: 1.5em;
+		margin-left: 1.2em;
 
 		&:before {
 			display: inline-block;
-			transform: rotate(90deg) translate(-0.05em, 0.75em);
+			transform: rotate(90deg) translate(0, 0.45em);
 			border-right: 0.1em solid currentColor;
 			height: 0.5em;
 			content: "";
