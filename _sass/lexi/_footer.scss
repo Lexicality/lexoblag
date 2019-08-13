@@ -1,0 +1,27 @@
+#page-footer {
+	border-top: 1px solid #EEE;
+	padding: 10px 0 15px;
+}
+
+#footer-links {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+
+	&, li {
+		margin: 0px;
+		padding: 0px;
+	}
+
+	li + li {
+		margin-left: 1.5em;
+
+		&:before {
+			display: inline-block;
+			transform: rotate(90deg) translate(-0.05em, 0.75em);
+			border-right: 0.1em solid currentColor;
+			height: 0.5em;
+			content: '';
+		}
+	}
+}

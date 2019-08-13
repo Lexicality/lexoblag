@@ -1,0 +1,41 @@
+#bio {
+	text-align: justify;
+}
+
+#proj {
+	margin-top: 15px;
+}
+
+#projects {
+	padding: 0px;
+}
+
+#projects:after {
+	content: "&nbsp";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+
+dl *.alternate {
+	background: rgb(241, 246, 247);
+}
+
+dt {
+	width: 22%;
+	clear:both;
+	float:left;
+	margin: 0px;
+	padding: 4px 1% 4px 0px;
+	text-align: right;
+}
+
+dd {
+	width: 76%;
+	clear:right;
+	float:right;
+	margin: 0px;
+	padding: 4px 0px 4px 1%;
+	text-align: left;
+}
