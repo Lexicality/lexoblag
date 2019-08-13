@@ -1,0 +1,39 @@
+#page-header {
+    padding-top: 1px;
+}
+
+#breadcrumbs {
+    & {
+        padding: 0 15px;
+        margin: 1em 0;
+    }
+
+	.crumbs {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.crumb {
+		display: inline;
+
+		&.-current {
+			> a {
+				color: #000;
+				font-weight: 700;
+				text-decoration: none;
+			}
+		}
+	}
+
+	.crumb + .crumb {
+		&::before {
+			display: inline-block;
+			margin: 0 0.25em;
+			transform: rotate(15deg);
+			border-right: 0.1em solid currentColor;
+			height: 0.8em;
+			content: "";
+		}
+	}
+}

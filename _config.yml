@@ -67,6 +67,14 @@ plugins:
   - jekyll-last-modified-at
   - jekyll-paginate-v2
   - jekyll-sitemap
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      breadcrumb: true
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

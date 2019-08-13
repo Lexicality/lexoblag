@@ -1,0 +1,49 @@
+{% if page.breadcrumb %}
+    <nav aria-label="breadcrumbs" id="breadcrumbs">
+        <ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="{{ site.baseurl }}/" itemtype="https://schema.org/Thing" itemprop="item">
+                    {{-}}
+                    <span itemprop="name">Home</span>
+                    {{-}}
+                </a>
+                <meta content="1" itemprop="position"/>
+            </li>
+            <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="{{ site.baseurl }}/blog/" itemtype="https://schema.org/Thing" itemprop="item">
+                    {{-}}
+                    <span itemprop="name">Blog</span>
+                    {{-}}
+                </a>
+                <meta content="2" itemprop="position"/>
+            </li>
+            {% for category in page.categories %}
+                <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="{{ site.baseurl }}/blog/{{ category }}/" itemtype="https://schema.org/Thing" itemprop="item">
+                        {{-}}
+                        <span itemprop="name">{% include nicename.html kind="cats" slug=category %}</span>
+                        {{-}}
+                    </a>
+                    <meta itemprop="position" content="{{ forloop.index | plus: 2}}"/>
+                </li>
+            {% endfor %}
+            {% assign title = page.title %}
+            {% if page.breadcrumb != true %}
+                {% assign title = page.breadcrumb %}
+            {% endif %}
+            {% if page.nicename_lookup and page.autopages %}
+                {% capture title -%}
+                    {% include nicename_title.html kind=page.nicename_lookup slug=page.autopages.display_name title=title %}
+                {%- endcapture %}
+            {% endif %}
+            <li class="crumb -current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="{{ page.url }}" aria-current="page" itemtype="https://schema.org/Thing" itemprop="item">
+                    {{-}}
+                    <span itemprop="name">{{ title }}</span>
+                    {{ -}}
+                </a>
+                <meta itemprop="position" content="{{ page.categories | size | plus: 3}}"/>
+            </li>
+        </ol>
+    </nav>
+{% endif %}
