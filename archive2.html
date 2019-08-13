@@ -1,18 +1,30 @@
 ---
 title: All Posts
-layout: page
+layout: base
 permalink: /blog/archive/
 ---
 
-<ol>
+<header>
+	<h1>{{ page.title }}</h1>
+
+	<p>
+		Every post on the site in easy to grep form.
+	</p>
+</header>
+
+<ol id="full-archive">
 {% for post in site.posts %}
 	{% assign id = post.id | create_id %}
 	{% assign category = post.categories | first %}
 	<li
 		id="{{ id }}"
+		class="archive-short-item"
+		data-date="{{post.date | date_to_xmlschema | escape}}"
 		data-category="{{ category | escape }}"
 	>
 		<a href="{{ post.url }}">
+			{{ post.date  | date_to_string: "ordinal", "UK" }}
+			-
 			{%
 				include nicename.html
 				kind='cats'

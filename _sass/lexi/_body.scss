@@ -13,6 +13,21 @@ body {
 }
 
 #page-content {
-	padding: 0 50px;
 	margin: 10px 0 15px;
+
+	p,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding: 0 50px;
+	}
+
+	h1 {
+		padding: 0 40px;
+	}
+
+	h2 {
+		padding: 0 45px;
+	}
 }
