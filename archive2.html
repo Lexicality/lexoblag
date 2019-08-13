@@ -13,7 +13,11 @@ permalink: /blog/archive/
 		data-category="{{ category | escape }}"
 	>
 		<a href="{{ post.url }}">
-			{{ category | entitle | escape }}: {{ post.title | escape}}
+			{%
+				include nicename.html
+				kind='cats'
+				slug=category
+			%}: {{ post.title | escape}}
 		</a>
 	</li>
 {% endfor %}

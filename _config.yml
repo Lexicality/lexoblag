@@ -35,6 +35,22 @@ pagination:
   permalink: /:num/
   sort_reverse: true
 
+autopages:
+  enabled: true
+
+  categories:
+    layouts:
+      - archive_cats.html
+    title: 'Archive for :nicename'
+    permalink: '/blog/:cat'
+
+  tags:
+    layouts:
+      - archive_tags.html
+    title: 'Archive for tag :nicename'
+    permalink: '/blog/tags/:tag'
+
+
 
 # Build settings
 markdown: kramdown
@@ -43,6 +59,7 @@ plugins:
   - jekyll-feed
   - jekyll-last-modified-at
   - jekyll-paginate-v2
+  - jekyll-sitemap
 
 
 

@@ -4,7 +4,18 @@ layout: base
 
 <div role="feed" aria-labelledby="archive-title">
 	<header>
-		<h1 id="archive-title">{{ page.title }}</h1>
+		<h1 id="archive-title">
+			{% if page.nicename_lookup and page.autopages %}
+				{%
+					include nicename_title.html
+					kind=page.nicename_lookup
+					slug=page.autopages.display_name
+					title=page.title
+				%}
+			{% else %}
+				{{ page.title }}
+			{% endif %}
+		</h1>
 
 		{{ content }}
 	</header>

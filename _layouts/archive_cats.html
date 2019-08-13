@@ -1,0 +1,14 @@
+---
+layout: archive
+nicename_lookup: cats
+---
+
+<p>
+{% if page.nicename_lookup and page.autopages %}
+    {%
+        include nicename_desc.html
+        kind=page.nicename_lookup
+        slug=page.autopages.display_name
+    %}
+{% endif %}
+</p>
