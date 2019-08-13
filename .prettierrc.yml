@@ -1,0 +1,9 @@
+trailingComma: "es5"
+tabWidth: 4
+useTabs: true
+arrowParens: "always"
+overrides:
+  - files: "*.yml"
+    options:
+      tabWidth: 2
+      useTabs: false

@@ -22,12 +22,12 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lex.me.uk" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: lexil
-github_username:  lexicality
+github_username: lexicality
 steam_username: lexicality
 
 permalink: /blog/:categories/:slug
 
-excerpt_separator: '<!-- more -->'
+excerpt_separator: "<!-- more -->"
 
 pagination:
   enabled: true
@@ -41,16 +41,14 @@ autopages:
   categories:
     layouts:
       - archive_cats.html
-    title: 'Archive for :nicename'
-    permalink: '/blog/:cat'
+    title: "Archive for :nicename"
+    permalink: "/blog/:cat"
 
   tags:
     layouts:
       - archive_tags.html
-    title: 'Archive for tag :nicename'
-    permalink: '/blog/tags/:tag'
-
-
+    title: "Archive for tag :nicename"
+    permalink: "/blog/tags/:tag"
 
 # Build settings
 markdown: kramdown
@@ -60,9 +58,6 @@ plugins:
   - jekyll-last-modified-at
   - jekyll-paginate-v2
   - jekyll-sitemap
-
-
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
