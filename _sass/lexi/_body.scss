@@ -30,4 +30,15 @@ body {
 	h2 {
 		padding: 0 45px;
 	}
+
+	figure.highlight,
+	div.highlight {
+		margin: 2em 0;
+		padding: 0 50px;
+
+		pre {
+			margin: 0;
+			padding: 0;
+		}
+	}
 }

@@ -3,7 +3,13 @@ tabWidth: 4
 useTabs: true
 arrowParens: "always"
 overrides:
+  # YAML gonna YAML
   - files: "*.yml"
     options:
       tabWidth: 2
+      useTabs: false
+  # Code blocks in markdown need to use spaces to avoid tab width issues in
+  # IE/Edge
+  - files: "*.md"
+    options:
       useTabs: false
