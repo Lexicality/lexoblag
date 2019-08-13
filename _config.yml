@@ -48,7 +48,10 @@ autopages:
     layouts:
       - archive_tags.html
     title: "Archive for tag :nicename"
-    permalink: "/blog/tags/:tag"
+    permalink: "/blog/tag/:tag"
+
+  collections:
+    enabled: false
 
 # Build settings
 markdown: kramdown
@@ -65,8 +68,9 @@ kramdown:
 plugins:
   - jekyll-feed
   - jekyll-last-modified-at
-  - jekyll-paginate-v2
   - jekyll-sitemap
+  - jekyll-paginate-v2
+  - jekyll-redirect-from
 
 defaults:
   -
