@@ -24,6 +24,7 @@ url: "https://lex.me.uk" # the base hostname & protocol for your site, e.g. http
 twitter_username: lexil
 github_username: lexicality
 steam_username: lexicality
+author: Lex Robinson
 
 permalink: /blog/:categories/:slug
 
@@ -78,6 +79,13 @@ defaults:
       path: ""
     values:
       breadcrumb: true
+  - scope:
+      path: "_posts"
+    values:
+      in_blog: true
+
+feed:
+  path: "/blog/feed.xml"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

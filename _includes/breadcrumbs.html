@@ -10,7 +10,7 @@
                 </a>
                 <meta itemprop="position" content="{{ depth }}"/>
             </li>
-            {% if page.collection == "posts" or page.in_blog %}
+            {% if page.in_blog %}
                 {% assign depth = depth | plus: 1 %}
                 <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <a href="{{ site.baseurl }}/blog/" itemtype="https://schema.org/Thing" itemprop="item">
