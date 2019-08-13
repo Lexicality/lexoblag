@@ -11,3 +11,13 @@
         }
 	}
 }
+
+#page-archive {
+	.archive-item {
+		border-top: 1px solid #ddd;
+
+		&:last-of-type {
+			border-bottom: 1px solid #ddd;
+		}
+	}
+}

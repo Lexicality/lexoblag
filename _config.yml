@@ -48,7 +48,7 @@ autopages:
   tags:
     layouts:
       - archive_tags.html
-    title: "Archive for tag :nicename"
+    title: 'Archive for tag ":nicename"'
     permalink: "/blog/tag/:tag"
 
   collections:
@@ -60,7 +60,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     default_lang: csharp
-    css_class: 'highlight'
+    css_class: "highlight"
     span:
       line_numbers: false
     block:
@@ -74,8 +74,7 @@ plugins:
   - jekyll-redirect-from
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       breadcrumb: true
@@ -86,7 +85,6 @@ defaults:
 
 feed:
   path: "/blog/feed.xml"
-
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

@@ -2,7 +2,7 @@
 layout: base
 ---
 
-<div role="feed" aria-labelledby="archive-title">
+<div role="feed" aria-labelledby="archive-title" id="page-archive">
 	<header>
 		<h1 id="archive-title">
 			{% if page.nicename_lookup and page.autopages %}
@@ -30,6 +30,7 @@ layout: base
 			itemtype="https://schema.org/BlogPosting"
 			tabindex="0"
 			id="{{ id }}"
+			class="archive-item"
 			aria-labelledby="{{ id }}-title"
 			aria-describedby="{{ id }}-desc"
 			aria-setsize="{{ total_posts }}"
