@@ -1,0 +1,11 @@
+{%- assign ye_post = post | default: page -%}
+{%- unless page.autopages -%}
+    {%- assign category = ye_post.categories | first -%}
+    {%-
+        include nicename.html
+        kind='cats'
+        slug=category
+    -%}
+    {{- ": "-}}
+{%- endunless -%}
+{{- ye_post.title | escape }}

@@ -27,7 +27,9 @@ layout: base
         {% assign id = post.id | create_id %}
         <article itemscope itemtype="https://schema.org/BlogPosting" tabindex="0" id="{{ id }}" class="archive-item" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc" aria-setsize="{{ total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
             <h2 itemprop="headline" id="{{ id }}-title">
-                <a itemprop="url" href="{{ site.baseurl }}{{ post.url}}">{{ post.title | escape }}</a>
+                <a itemprop="url" href="{{ site.baseurl }}{{ post.url}}">
+                    {% include article_title.html %}
+                </a>
             </h2>
 
             <div id="{{ id }}-desc">
@@ -36,13 +38,13 @@ layout: base
 
             {% if post.excerpt != post.content %}
                 <p>
-					<a href="{{ site.baseurl }}{{ post.url }}">Continue reading</a>
-				</p>
+                    <a href="{{ site.baseurl }}{{ post.url }}">Continue reading</a>
+                </p>
             {% endif %}
         </article>
     {% endfor %}
 
     {% if paginator.page_trail %}
-		{% include pagination.html %}
+        {% include pagination.html %}
     {% endif %}
 </div>
