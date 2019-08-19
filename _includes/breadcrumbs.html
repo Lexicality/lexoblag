@@ -3,7 +3,7 @@
         <ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
             {% assign depth = 1 %}
             <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="{{ site.baseurl }}/" itemtype="https://schema.org/Thing" itemprop="item">
+                <a href="{{ site.baseurl }}/" itemscope itemtype="https://schema.org/Thing" itemprop="item">
                     {{-}}
                     <span itemprop="name">Home</span>
                     {{-}}
@@ -13,7 +13,7 @@
             {% if page.in_blog %}
                 {% assign depth = depth | plus: 1 %}
                 <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="{{ site.baseurl }}/blog/" itemtype="https://schema.org/Thing" itemprop="item">
+                    <a href="{{ site.baseurl }}/blog/" itemscope itemtype="https://schema.org/Thing" itemprop="item">
                         {{-}}
                         <span itemprop="name">Blog</span>
                         {{-}}
@@ -24,7 +24,7 @@
             {% for category in page.categories %}
                 {% assign depth = depth | plus: 1 %}
                 <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="{{ site.baseurl }}/blog/{{ category }}/" itemtype="https://schema.org/Thing" itemprop="item">
+                    <a href="{{ site.baseurl }}/blog/{{ category }}/" itemscope itemtype="https://schema.org/Thing" itemprop="item">
                         {{-}}
                         <span itemprop="name">{% include nicename.html kind="cats" slug=category %}</span>
                         {{-}}
@@ -43,7 +43,7 @@
             {% endif %}
             {% assign depth = depth | plus: 1 %}
             <li class="crumb -current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="{{ page.url }}" aria-current="page" itemtype="https://schema.org/Thing" itemprop="item">
+                <a href="{{ page.url }}" aria-current="page" itemscope itemtype="https://schema.org/Thing" itemprop="item">
                     {{-}}
                     <span itemprop="name">{{ title }}</span>
                     {{-}}
