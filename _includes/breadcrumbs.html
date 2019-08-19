@@ -40,14 +40,32 @@
                     {% include nicename_title.html kind=page.nicename_lookup slug=page.autopages.display_name title=title %}
                 {%- endcapture %}
             {% endif %}
+            {% if paginator %}
+                {% assign is_singular = false %}
+                {% assign path = paginator.first_page_path %}
+            {% else %}
+                {% assign is_singular = true %}
+                {% assign path = page.url %}
+            {% endif %}
             {% assign depth = depth | plus: 1 %}
             {%
                 include breadcrumb_item.html
-                current=true
+                current=is_singular
                 depth=depth
-                path=page.url
+                path=path
                 title=title
             %}
+            {% unless is_singular %}
+                {% assign depth = depth | plus: 1 %}
+                {% assign title = "Page " | append: paginator.page %}
+                {%
+                    include breadcrumb_item.html
+                    current=true
+                    depth=depth
+                    path=page.url
+                    title=title
+                %}
+            {% endunless %}
         </ol>
     </nav>
 {% endif %}
