@@ -1,0 +1,141 @@
+@import "./colours";
+
+$tag-size: 1.2rem;
+$arrow-size: 0.6rem;
+$hole-size: 0.2rem;
+
+$padding: 0.5rem;
+
+$tap-target: 0.3rem;
+$mobile-tap-target: 0.5rem;
+
+$tag-background: $body-bg-colour;
+$tag-colour: $tag-bg-colour;
+$tag-hover: $tag-hover-bg-colour;
+$tag-text: $body-text-colour;
+
+$mobile-fade-width: 1.2rem;
+
+.tag-bar {
+	& {
+		list-style: none;
+		padding: 0;
+		margin-left: -$tap-target;
+	}
+
+	> .tag {
+		display: inline-block;
+	}
+}
+
+@media only screen and (max-device-width: $bp-phone) {
+	.tag-bar {
+		white-space: nowrap;
+		overflow: auto;
+		padding: 0 ($mobile-fade-width - $tap-target);
+		margin: 0;
+	}
+
+	.tag-bar-holder {
+		padding: 0;
+		position: relative;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: $mobile-fade-width;
+			z-index: 100;
+		}
+
+		&::before {
+			left: 0;
+			background: linear-gradient(
+				90deg,
+				$body-bg-colour 0%,
+				$body-bg-colour 20%,
+				transparent 100%
+			);
+		}
+
+		&::after {
+			right: 0;
+			background: linear-gradient(
+				90deg,
+				transparent 0%,
+				$body-bg-colour 80%,
+				$body-bg-colour 100%
+			);
+		}
+	}
+}
+
+.post-tag {
+	& {
+		padding: $tap-target;
+		display: block;
+		color: $body-text-colour;
+		text-decoration: none;
+	}
+
+	&:hover {
+		color: $tag-text;
+	}
+
+	> .tag {
+		display: block;
+
+		// Set the visible height of the tag
+		line-height: $tag-size;
+
+		padding: 0 $padding 0 $padding - 0.1rem + $arrow-size;
+
+		font-size: 0.9rem;
+
+		background: $tag-colour;
+
+		position: relative;
+	}
+
+	> .tag::before {
+		$arrow-sides: $tag-size / 2;
+		content: "";
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		border: {
+			left: 0 solid $tag-background;
+			right: $arrow-size solid $tag-colour;
+			top: $arrow-sides solid $tag-background;
+			bottom: $arrow-sides solid $tag-background;
+		}
+	}
+
+	> .tag::after {
+		content: "";
+
+		position: absolute;
+		top: 50%;
+		left: $arrow-size;
+		transform: translate(-50%, -50%);
+
+		background: $tag-background;
+		border-radius: 100%;
+		width: $hole-size;
+		height: $hole-size;
+	}
+
+	&:hover {
+		> .tag {
+			background-color: $tag-hover;
+		}
+
+		> .tag::before {
+			border-right-color: $tag-hover;
+		}
+	}
+}

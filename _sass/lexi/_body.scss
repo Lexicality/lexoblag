@@ -1,10 +1,7 @@
 @import "./colours";
-
-$bp-ipad: 1024px;
-$bp-phone: 768px;
+@import "./breakpoints";
 
 body {
-	background: repeat url("../img/groovepaper.png") fixed;
 	margin: 0;
 	padding: 0;
 }
@@ -20,14 +17,24 @@ body {
 
 $hz-padding: 1.2rem;
 $margin-inset: 0.2rem;
-$code-padding: 1em;
+$code-padding: 1rem;
+$list-disc-size: 1.6rem; // I think
 
 p,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.body-padding {
 	padding: 0 $hz-padding;
+}
+
+ul,
+ol {
+	padding: {
+		left: $hz-padding + $list-disc-size;
+		right: $hz-padding;
+	}
 }
 
 p {
@@ -67,9 +74,9 @@ p:last-child {
 }
 
 @media only screen and (min-device-width: $bp-phone) {
-	$hz-padding: 50px;
+	$hz-padding: 3.125rem;
 	$code-padding: 2em;
-	$margin-inset: 10px;
+	$margin-inset: 0.625rem;
 
 	body {
 		background: repeat url("../img/groovepaper.png") fixed;
@@ -85,8 +92,17 @@ p:last-child {
 	h3,
 	h4,
 	h5,
-	h6 {
+	h6,
+	.body-padding {
 		padding: 0 $hz-padding;
+	}
+
+	ul,
+	ol {
+		padding: {
+			left: $hz-padding + $list-disc-size;
+			right: $hz-padding;
+		}
 	}
 
 	h1 {

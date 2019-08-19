@@ -10,3 +10,8 @@ $list-alt-bg-colour: rgb(241, 246, 247);
 $divider-colour: #ddd;
 
 $solarized-bg-colour: #fdf6e3;
+
+$tag-bg-colour: #ddd;
+$tag-border-colour: darken($tag-bg-colour, 5%);
+$tag-hover-bg-colour: darken($tag-bg-colour, 10%);
+$tag-hover-border-colour: darken($tag-border-colour, 10%);

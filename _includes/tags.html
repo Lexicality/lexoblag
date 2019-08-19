@@ -1,0 +1,11 @@
+{%- assign ye_post = post | default: page -%}
+{% assign num_tags = ye_post.tags | size %}
+{% if num_tags > 0 %}
+	<div class="body-padding tag-bar-holder">
+		<ol class="tag-bar">
+			{%- for tag in ye_post.tags -%}
+				{%- include tag.html -%}
+			{%- endfor -%}
+		</ol>
+	</div>
+{% endif %}

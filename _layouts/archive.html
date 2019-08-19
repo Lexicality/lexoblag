@@ -26,11 +26,15 @@ layout: base
     {% for post in paginator.posts %}
         {% assign id = post.id | create_id %}
         <article itemscope itemtype="https://schema.org/BlogPosting" tabindex="0" id="{{ id }}" class="archive-item" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc" aria-setsize="{{ total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
-            <h2 itemprop="headline" id="{{ id }}-title">
-                <a itemprop="url" href="{{ site.baseurl }}{{ post.url}}">
-                    {% include article_title.html %}
-                </a>
-            </h2>
+			<header>
+				<h2 itemprop="headline" id="{{ id }}-title">
+					<a itemprop="url" href="{{ site.baseurl }}{{ post.url}}">
+						{% include article_title.html %}
+					</a>
+				</h2>
+
+				{% include tags.html %}
+			</header>
 
             <div id="{{ id }}-desc">
                 {{ post.excerpt }}

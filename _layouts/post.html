@@ -1,7 +1,12 @@
 ---
 layout: base
 ---
-<h1>{% include article_title.html %}</h1>
-<div class='separator'></div>
+<article aria-labelledby="post-heading">
+    <header>
+        <h1 id="post-heading">{% include article_title.html %}</h1>
+        {% include tags.html %}
+    </header>
 
-{{ content }}
+    {{ content }}
+
+</article>
