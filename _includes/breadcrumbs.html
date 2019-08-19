@@ -43,7 +43,7 @@
             {% endif %}
             {% assign depth = depth | plus: 1 %}
             <li class="crumb -current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="{{ page.url }}" aria-current="page" itemscope itemtype="https://schema.org/Thing" itemprop="item">
+                <a href="{{ site.baseurl }}{{ page.url }}" aria-current="page" itemscope itemtype="https://schema.org/Thing" itemprop="item">
                     {{-}}
                     <span itemprop="name">{{ title }}</span>
                     {{-}}
