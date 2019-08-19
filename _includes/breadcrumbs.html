@@ -2,35 +2,34 @@
     <nav aria-label="breadcrumbs" id="breadcrumbs">
         <ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
             {% assign depth = 1 %}
-            <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="{{ site.baseurl }}/" itemscope itemtype="https://schema.org/Thing" itemprop="item">
-                    {{-}}
-                    <span itemprop="name">Home</span>
-                    {{-}}
-                </a>
-                <meta itemprop="position" content="{{ depth }}"/>
-            </li>
+            {%
+                include breadcrumb_item.html
+                current=false
+                depth=depth
+                path='/'
+                title='Home'
+            %}
             {% if page.in_blog %}
                 {% assign depth = depth | plus: 1 %}
-                <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="{{ site.baseurl }}/blog/" itemscope itemtype="https://schema.org/Thing" itemprop="item">
-                        {{-}}
-                        <span itemprop="name">Blog</span>
-                        {{-}}
-                    </a>
-                    <meta itemprop="position" content="{{ depth }}"/>
-                </li>
+                {%
+                    include breadcrumb_item.html
+                    current=false
+                    depth=depth
+                    path='/blog/'
+                    title='Blog'
+                %}
             {% endif %}
             {% for category in page.categories %}
                 {% assign depth = depth | plus: 1 %}
-                <li class="crumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a href="{{ site.baseurl }}/blog/{{ category }}/" itemscope itemtype="https://schema.org/Thing" itemprop="item">
-                        {{-}}
-                        <span itemprop="name">{% include nicename.html kind="cats" slug=category %}</span>
-                        {{-}}
-                    </a>
-                    <meta itemprop="position" content="{{ depth }}"/>
-                </li>
+                {% capture title %}{% include nicename.html kind="cats" slug=category %}{% endcapture %}
+                {% assign path = "/blog/" | append: category | append: "/" %}
+                {%
+                    include breadcrumb_item.html
+                    current=false
+                    depth=depth
+                    path=path
+                    title=title
+                %}
             {% endfor %}
             {% assign title = page.title %}
             {% if page.breadcrumb != true %}
@@ -42,14 +41,13 @@
                 {%- endcapture %}
             {% endif %}
             {% assign depth = depth | plus: 1 %}
-            <li class="crumb -current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a href="{{ site.baseurl }}{{ page.url }}" aria-current="page" itemscope itemtype="https://schema.org/Thing" itemprop="item">
-                    {{-}}
-                    <span itemprop="name">{{ title }}</span>
-                    {{-}}
-                </a>
-                <meta itemprop="position" content="{{ depth }}"/>
-            </li>
+            {%
+                include breadcrumb_item.html
+                current=true
+                depth=depth
+                path=page.url
+                title=title
+            %}
         </ol>
     </nav>
 {% endif %}
