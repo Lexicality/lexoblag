@@ -1,5 +1,7 @@
+@import "./colours";
+
 #page-footer {
-	border-top: 1px solid #eee;
+	border-top: 1px solid $divider-colour;
 	padding: 10px 0 15px;
 }
 

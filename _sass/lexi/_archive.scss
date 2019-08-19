@@ -1,3 +1,6 @@
+@import "./colours";
+@import "./mixins";
+
 #full-archive {
 	list-style: none;
 	margin: 0;
@@ -7,18 +10,14 @@
 		padding: 5px 50px;
 
 		&:nth-child(2n -1) {
-			background: rgb(241, 246, 247);
+			background: $list-alt-bg-colour;
 		}
 	}
 }
 
 #page-archive {
 	.archive-item {
-		border-top: 1px solid #ddd;
-
-		// &:last-of-type {
-		// 	border-bottom: 1px solid #ddd;
-		// }
+		border-top: 1px solid $divider-colour;
 	}
 }
 
@@ -35,7 +34,7 @@
 .pagination-link {
 	&.-disabled {
 		text-decoration: none;
-		color: #aaa;
+		color: $link-disabled-colour;
 		cursor: default;
 	}
 }
@@ -49,17 +48,8 @@
 		flex: 0 0 auto;
 		padding: 0 0.2em;
 
-		&.-current {
-			font-weight: bold;
-		}
-
 		&.-current > a {
-			&,
-			&:hover {
-				text-decoration: none;
-				cursor: default;
-				color: black;
-			}
+			@include active-link;
 		}
 	}
 }

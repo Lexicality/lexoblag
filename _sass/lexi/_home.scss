@@ -1,3 +1,5 @@
+@import "./colours";
+
 #bio {
 	text-align: justify;
 }
@@ -19,7 +21,7 @@
 }
 
 dl *.alternate {
-	background: rgb(241, 246, 247);
+	background: $list-alt-bg-colour;
 }
 
 dt {

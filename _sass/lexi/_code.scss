@@ -1,3 +1,5 @@
+@import "./colours";
+
 .highlight {
 	td {
 		padding: 1em 0;
@@ -7,7 +9,7 @@
 
 	.rouge-gutter,
 	.gutter {
-		border-right: 1px solid darken(#fdf6e3, 10%);
+		border-right: 1px solid darken($solarized-bg-colour, 10%);
 		padding-right: $code-padding;
 	}
 

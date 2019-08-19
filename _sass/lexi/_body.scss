@@ -1,3 +1,5 @@
+@import "./colours";
+
 body {
 	background: repeat url("../img/groovepaper.png") fixed;
 	margin: 0;
@@ -10,8 +12,8 @@ body {
 	margin-right: auto;
 	width: 700px;
 	box-shadow: 5px 5px 10px #888;
-	background: white;
-	color: rgb(6, 13, 26);
+	background: $body-bg-colour;
+	color: $body-text-colour;
 }
 
 #page-content {
@@ -39,6 +41,7 @@ pre:not(.highlight) {
 	padding: 2em 50px;
 	overflow: auto;
 	white-space: pre-wrap;
+	background: $solarized-bg-colour;
 }
 
 figure.highlight,
