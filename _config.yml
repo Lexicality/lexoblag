@@ -35,6 +35,9 @@ pagination:
   per_page: 2 #10
   permalink: /:num/
   sort_reverse: true
+  trail:
+    before: 1
+    after: 1
 
 autopages:
   enabled: true

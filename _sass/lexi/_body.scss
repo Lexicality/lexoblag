@@ -16,31 +16,44 @@ body {
 
 #page-content {
 	margin: 10px 0 15px;
+}
 
-	p,
-	h3,
-	h4,
-	h5,
-	h6 {
-		padding: 0 50px;
+p,
+h3,
+h4,
+h5,
+h6 {
+	padding: 0 50px;
+}
+
+h1 {
+	padding: 0 40px;
+}
+
+h2 {
+	padding: 0 45px;
+}
+
+// raw preformatted stuff
+pre:not(.highlight) {
+	padding: 2em 50px;
+	overflow: auto;
+	white-space: pre-wrap;
+}
+
+figure.highlight,
+div.highlight {
+	margin: 2em 0;
+	padding: 0 50px;
+	overflow: auto;
+
+	pre {
+		margin: 0;
+		padding: 0;
+		white-space: pre;
 	}
+}
 
-	h1 {
-		padding: 0 40px;
-	}
-
-	h2 {
-		padding: 0 45px;
-	}
-
-	figure.highlight,
-	div.highlight {
-		margin: 2em 0;
-		padding: 0 50px;
-
-		pre {
-			margin: 0;
-			padding: 0;
-		}
-	}
+p:last-child {
+	margin-bottom: 1.5em;
 }

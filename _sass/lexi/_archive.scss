@@ -4,11 +4,11 @@
 	padding: 0;
 
 	.archive-short-item {
-        padding: 5px 50px;
+		padding: 5px 50px;
 
-        &:nth-child(2n -1) {
-	background: rgb(241, 246, 247);
-        }
+		&:nth-child(2n -1) {
+			background: rgb(241, 246, 247);
+		}
 	}
 }
 
@@ -16,8 +16,50 @@
 	.archive-item {
 		border-top: 1px solid #ddd;
 
-		&:last-of-type {
-			border-bottom: 1px solid #ddd;
+		// &:last-of-type {
+		// 	border-bottom: 1px solid #ddd;
+		// }
+	}
+}
+
+#pagination-container {
+	display: flex;
+	justify-content: center;
+
+	> * {
+		flex: 0 0 auto;
+		margin: 0 0.3em;
+	}
+}
+
+.pagination-link {
+	&.-disabled {
+		text-decoration: none;
+		color: #aaa;
+		cursor: default;
+	}
+}
+
+#pagination {
+	list-style: none;
+	padding: 0;
+	display: flex;
+
+	> .pagination-item {
+		flex: 0 0 auto;
+		padding: 0 0.2em;
+
+		&.-current {
+			font-weight: bold;
+		}
+
+		&.-current > a {
+			&,
+			&:hover {
+				text-decoration: none;
+				cursor: default;
+				color: black;
+			}
 		}
 	}
 }

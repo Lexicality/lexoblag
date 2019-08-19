@@ -1,0 +1,54 @@
+<nav aria-label="page navigation" id="pagination-container">
+    {% assign first_page = paginator.page_trail | first %}
+    {% assign last_page = paginator.page_trail | last %}
+    {% assign penultimate_page_num = paginator.last_page | minus: 1 %}
+    {% if paginator.previous_page %}{% assign no_prev = false %}{% else %}{% assign no_prev = true %}{% endif %}
+    {% if paginator.next_page %}{% assign no_next = false %}{% else %}{% assign no_next = true %}{% endif %}
+    <a
+        class="
+            pagination-link
+            -prev
+            {% if no_prev %}-disabled{% endif %}
+        "
+        title="Previous Page"
+        {% if no_prev %}
+            aria-disabled="true"
+            onclick="return false"
+        {% endif %}
+        href="{{ site.baseurl }}{{ paginator.previous_page_path | default: paginator.first_page_path }}"
+    >
+        {{- "&larr; Previous" -}}
+    </a>
+    <ol id="pagination">
+        {% if first_page.num != 1 %}
+            {% include pagination_item.html num=paginator.first_page path=paginator.first_page_path %}
+            {% if first_page.num != 2 %}
+                <li class="pagination-item -hellip">&hellip;</li>
+            {% endif %}
+        {% endif %}
+        {% for trail in paginator.page_trail %}
+            {% include pagination_item.html num=trail.num path=trail.path %}
+        {% endfor %}
+        {% if last_page.num != paginator.last_page %}
+            {% if last_page.num != penultimate_page_num %}
+                <li class="pagination-item -hellip">&hellip;</li>
+            {% endif %}
+            {% include pagination_item.html num=paginator.last_page path=paginator.last_page_path %}
+        {% endif %}
+    </ol>
+    <a
+        class="
+            pagination-link
+            -next
+            {% if no_next %}-disabled{% endif %}
+        "
+        title="Next Page"
+        {% if no_next %}
+            aria-disabled="true"
+            onclick="return false"
+        {% endif %}
+        href="{{ site.baseurl }}{{ paginator.next_page_path | default: paginator.last_page_path }}"
+    >
+        {{- "Next &rarr;" -}}
+    </a>
+</nav>
