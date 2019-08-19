@@ -1,8 +1,14 @@
 @import "./colours";
 
+$bp-phone: 768px;
+
 #page-footer {
 	border-top: 1px solid $divider-colour;
 	padding: 10px 0 15px;
+
+	@media print {
+		display: none;
+	}
 }
 
 #footer-links {
@@ -16,15 +22,28 @@
 		padding: 0px;
 	}
 
-	li + li {
-		margin-left: 1.2em;
+	@media only screen and (min-device-width: $bp-phone) {
+		li + li {
+			margin-left: 1.2em;
 
-		&:before {
-			display: inline-block;
-			transform: rotate(90deg) translate(0, 0.45em);
-			border-right: 0.1em solid currentColor;
-			height: 0.5em;
-			content: "";
+			&:before {
+				display: inline-block;
+				transform: rotate(90deg) translate(0, 0.45em);
+				border-right: 0.1em solid currentColor;
+				height: 0.5em;
+				content: "";
+			}
+		}
+	}
+
+	@media only screen and (max-device-width: $bp-phone) {
+		& {
+			flex-wrap: wrap;
+		}
+		li {
+			flex: 1 0 30%;
+			text-align: center;
+			padding: 0.5em 0;
 		}
 	}
 }

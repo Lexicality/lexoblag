@@ -12,3 +12,18 @@ a:hover {
 hr {
 	margin: 20px 0;
 }
+
+
+.print-only {
+	display: none;
+}
+
+@media print {
+	.print-only {
+		display: initial;
+	}
+
+	.no-print {
+		display: none;
+	}
+}

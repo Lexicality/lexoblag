@@ -1,5 +1,8 @@
 @import "./colours";
 
+$bp-ipad: 1024px;
+$bp-phone: 768px;
+
 body {
 	background: repeat url("../img/groovepaper.png") fixed;
 	margin: 0;
@@ -7,11 +10,6 @@ body {
 }
 
 #main {
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 700px;
-	box-shadow: 5px 5px 10px #888;
 	background: $body-bg-colour;
 	color: $body-text-colour;
 }
@@ -20,25 +18,33 @@ body {
 	margin: 10px 0 15px;
 }
 
+$hz-padding: 1.2rem;
+$margin-inset: 0.2rem;
+$code-padding: 1em;
+
 p,
 h3,
 h4,
 h5,
 h6 {
-	padding: 0 50px;
+	padding: 0 $hz-padding;
+}
+
+p {
+	line-height: 1.4;
 }
 
 h1 {
-	padding: 0 40px;
+	padding: 0 ($hz-padding - $margin-inset);
 }
 
 h2 {
-	padding: 0 45px;
+	padding: 0 ($hz-padding - ($margin-inset / 2));
 }
 
 // raw preformatted stuff
 pre:not(.highlight) {
-	padding: 2em 50px;
+	padding: $code-padding $hz-padding;
 	overflow: auto;
 	white-space: pre-wrap;
 	background: $solarized-bg-colour;
@@ -46,8 +52,8 @@ pre:not(.highlight) {
 
 figure.highlight,
 div.highlight {
-	margin: 2em 0;
-	padding: 0 50px;
+	margin: $code-padding 0;
+	padding: 0 $hz-padding;
 	overflow: auto;
 
 	pre {
@@ -59,4 +65,57 @@ div.highlight {
 
 p:last-child {
 	margin-bottom: 1.5em;
+}
+
+@media only screen and (min-device-width: $bp-phone) {
+	$hz-padding: 50px;
+	$code-padding: 2em;
+	$margin-inset: 10px;
+
+	body {
+		background: repeat url("../img/groovepaper.png") fixed;
+	}
+
+	#main {
+		margin: 30px auto;
+		width: 700px;
+		box-shadow: 5px 5px 10px #888;
+	}
+
+	p,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding: 0 $hz-padding;
+	}
+
+	h1 {
+		padding: 0 ($hz-padding - $margin-inset);
+	}
+
+	h2 {
+		padding: 0 ($hz-padding - ($margin-inset / 2));
+	}
+
+	// raw preformatted stuff
+	pre:not(.highlight) {
+		padding: $code-padding $hz-padding;
+	}
+
+	figure.highlight,
+	div.highlight {
+		margin: $code-padding 0;
+		padding: 0 $hz-padding;
+	}
+
+	p:last-child {
+		margin-bottom: 1.5em;
+	}
+}
+
+@media only screen and (min-device-width: $bp-ipad) {
+	#main {
+		margin-top: 50px;
+	}
 }
