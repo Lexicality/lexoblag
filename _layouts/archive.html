@@ -37,7 +37,9 @@ layout: base
 			</header>
 
             <div id="{{ id }}-desc">
+				{% unless post.excerpt contains '<p>' %}<p>{% endunless -%}
                 {{ post.excerpt }}
+				{%- unless post.excerpt contains '</p>' %}</p>{% endunless %}
             </div>
 
             {% if post.excerpt != post.content %}
