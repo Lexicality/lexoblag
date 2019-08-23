@@ -50,8 +50,7 @@ pre:not(.highlight) {
 	background: $solarized-bg-colour;
 }
 
-figure.highlight,
-div.highlight {
+figure.highlight {
 	margin: $code-padding 0;
 	padding: 0 $hz-padding;
 	overflow: auto;
@@ -103,8 +102,7 @@ p:last-child {
 		padding: $code-padding $hz-padding;
 	}
 
-	figure.highlight,
-	div.highlight {
+	figure.highlight {
 		margin: $code-padding 0;
 		padding: 0 $hz-padding;
 	}

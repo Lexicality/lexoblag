@@ -1,20 +1,22 @@
 @import "./colours";
 
-.highlight {
+.rouge-table {
 	td {
 		padding: 1em 0;
 	}
 
 	$code-padding: 0.4em;
 
-	.rouge-gutter,
 	.gutter {
 		border-right: 1px solid darken($solarized-bg-colour, 10%);
 		padding-right: $code-padding;
 	}
 
-	.rouge-code,
 	.code {
 		padding-left: $code-padding;
 	}
+}
+
+code.highlight {
+	padding: 0 0.3em;
 }

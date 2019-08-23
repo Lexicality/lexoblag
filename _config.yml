@@ -62,12 +62,15 @@ markdown: kramdown
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
-    default_lang: csharp
-    css_class: "highlight"
+    guess_lang: false
+    wrap: false
+    gutter_class: "gutter"
+    code_class: "code"
     span:
       line_numbers: false
     block:
       line_numbers: true
+
 
 plugins:
   - jekyll-feed
