@@ -2,7 +2,11 @@
     <nav aria-label="breadcrumbs" id="breadcrumbs">
         <ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
             {% assign depth = 1 %}
-            {% capture title %}<span class="no-print">Home</span><span class="print-only">{{ site.url | replace: "https:", "http:" | replace: "http:", "" | replace: "/", "" }}</span>{% endcapture %}
+			{% capture title -%}
+				<img src="/favicon.ico" id="home-icon" role="presentation">
+				{{-}}
+				{{ site.url | replace: "https:", "http:" | replace: "http:", "" | replace: "/", "" }}
+			{%- endcapture %}
             {%
                 include breadcrumb_item.html
                 current=false
