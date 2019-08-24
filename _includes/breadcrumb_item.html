@@ -1,19 +1,19 @@
 <li
-    class="crumb {% if include.current %}-current{% endif %} "
-    itemprop="itemListElement"
-    itemscope
-    itemtype="https://schema.org/ListItem"
-    {% if include.current %}aria-current="page"{% endif %}
+	class="crumb {% if include.current %}-current{% endif %} "
+	itemprop="itemListElement"
+	itemscope
+	itemtype="https://schema.org/ListItem"
+	{% if include.current %}aria-current="page"{% endif %}
 >
-    <a
-        href="{{ site.baseurl }}{{ include.path | replace: "index.html", "" }}"
-        itemscope
-        itemtype="https://schema.org/Thing"
-        itemprop="item"
-    >
-        {{-}}
-        <span itemprop="name">{{ include.title }}</span>
-        {{-}}
-    </a>
-    <meta itemprop="position" content="{{ include.depth }}"/>
+	<a
+		href="{{ site.baseurl }}{{ include.path | replace: "index.html", "" }}"
+		itemscope
+		itemtype="https://schema.org/Thing"
+		itemprop="item"
+	>
+		{{-}}
+		<span itemprop="name">{{ include.title }}</span>
+		{{-}}
+	</a>
+	<meta itemprop="position" content="{{ include.depth }}"/>
 </li>

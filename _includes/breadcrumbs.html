@@ -1,88 +1,78 @@
 {% if page.breadcrumb %}
-    <nav aria-label="breadcrumbs" id="breadcrumbs">
-        <ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
-            {% assign depth = 1 %}
+	<nav aria-label="breadcrumbs" id="breadcrumbs">
+		<ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+			{% assign depth = 1 %}
 			{% capture title -%}
-				<img src="/favicon.ico" id="home-icon" role="presentation">
+				<img id="home-icon" role="presentation" src="/favicon.ico">
 				{{-}}
 				{{ site.url | replace: "https:", "http:" | replace: "http:", "" | replace: "/", "" }}
 			{%- endcapture %}
-            {%
-                include breadcrumb_item.html
-                current=false
-                depth=depth
-                path='/'
-                title=title
-            %}
-            {% if page.in_blog %}
-                {% assign depth = depth | plus: 1 %}
-                {%
-                    include breadcrumb_item.html
-                    current=false
-                    depth=depth
-                    path='/blog/'
-                    title='Blog'
-                %}
-            {% elsif page.collection %}
-                {% assign collection = site.data.collections[page.collection] %}
-                {% if collection %}
-                    {% assign depth = depth | plus: 1 %}
-                    {%
-                        include breadcrumb_item.html
-                        current=false
-                        depth=depth
-                        path=collection.path
-                        title=collection.title
-                    %}
-                {% endif %}
-            {% endif %}
-            {% for category in page.categories %}
-                {% assign depth = depth | plus: 1 %}
-                {% capture title %}{% include nicename.html kind="cats" slug=category %}{% endcapture %}
-                {% assign path = "/blog/" | append: category | append: "/" %}
-                {%
-                    include breadcrumb_item.html
-                    current=false
-                    depth=depth
-                    path=path
-                    title=title
-                %}
-            {% endfor %}
-            {% assign title = page.title %}
-            {% if page.breadcrumb != true %}
-                {% assign title = page.breadcrumb %}
-            {% endif %}
-            {% if page.nicename_lookup and page.autopages %}
-                {% capture title -%}
-                    {% include nicename_title.html kind=page.nicename_lookup slug=page.autopages.display_name title=title %}
-                {%- endcapture %}
-            {% endif %}
-            {% if paginator %}
-                {% assign is_singular = false %}
-                {% assign path = paginator.first_page_path %}
-            {% else %}
-                {% assign is_singular = true %}
-                {% assign path = page.url %}
-            {% endif %}
-            {% assign depth = depth | plus: 1 %}
-            {%
-                include breadcrumb_item.html
-                current=is_singular
-                depth=depth
-                path=path
-                title=title
-            %}
-            {% unless is_singular %}
-                {% assign depth = depth | plus: 1 %}
-                {% assign title = "Page " | append: paginator.page %}
-                {%
-                    include breadcrumb_item.html
-                    current=true
-                    depth=depth
-                    path=page.url
-                    title=title
-                %}
-            {% endunless %}
-        </ol>
-    </nav>
+			{%
+				include breadcrumb_item.html
+				current=false
+				depth=depth
+				path='/'
+				title=title
+			%}
+			{% if page.in_blog %}
+				{% assign depth = depth | plus: 1 %}
+				{%
+					include breadcrumb_item.html
+					current=false
+					depth=depth
+					path='/blog/'
+					title='Blog'
+				%}
+			{% endif %}
+			{% for category in page.categories %}
+				{% assign depth = depth | plus: 1 %}
+				{% capture title %}
+					{% include nicename.html kind="cats" slug=category %}
+				{% endcapture %}
+				{% assign path = "/blog/" | append: category | append: "/" %}
+				{%
+					include breadcrumb_item.html
+					current=false
+					depth=depth
+					path=path
+					title=title
+				%}
+			{% endfor %}
+			{% assign title = page.title %}
+			{% if page.breadcrumb != true %}
+				{% assign title = page.breadcrumb %}
+			{% endif %}
+			{% if page.nicename_lookup and page.autopages %}
+				{% capture title -%}
+					{% include nicename_title.html kind=page.nicename_lookup slug=page.autopages.display_name title=title %}
+				{%- endcapture %}
+			{% endif %}
+			{% if paginator %}
+				{% assign is_singular = false %}
+				{% assign path = paginator.first_page_path %}
+			{% else %}
+				{% assign is_singular = true %}
+				{% assign path = page.url %}
+			{% endif %}
+			{% assign depth = depth | plus: 1 %}
+			{%
+				include breadcrumb_item.html
+				current=is_singular
+				depth=depth
+				path=path
+				title=title
+			%}
+			{% unless is_singular %}
+				{% assign depth = depth | plus: 1 %}
+				{% assign title = "Page " | append: paginator.page %}
+				{%
+					include breadcrumb_item.html
+					current=true
+					depth=depth
+					path=page.url
+					title=title
+				%}
+			{% endunless %}
+		</ol>
+	</nav>
 {% endif %}

@@ -1,17 +1,17 @@
 {%- capture name %}{%
-    include nicename.html
-    kind='tags'
-    slug=tag
+	include nicename.html
+	kind='tags'
+	slug=tag
 %}{% endcapture -%}
 <li class="tag">
-    {{-}}
-    <a href="{{ site.baseurl }}/blog/tag/{{ tag }}" aria-label="tag: {{ name }}" class="post-tag">
+	{{-}}
+	<a href="{{ site.baseurl }}/blog/tag/{{ tag }}" aria-label="tag: {{ name }}" class="post-tag">
 		{{-}}
-        <span class="tag">
+		<span class="tag">
 			{{- name -}}
 		</span>
 		{{-}}
-    </a>
-    {{-}}
+	</a>
+	{{-}}
 </li>
 {{-}}

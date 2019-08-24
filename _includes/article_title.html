@@ -1,10 +1,10 @@
 {%- assign ye_post = post | default: page -%}
 {%- unless page.autopages -%}
-    {%- assign category = ye_post.categories | first -%}
-    {%- assign cat_data = site.data.cats[category] -%}
-    {%- if cat_data.in_title -%}
-        {{- cat_data.name -}}
-        {{- ": " -}}
-    {%- endif -%}
+	{%- assign category = ye_post.categories | first -%}
+	{%- assign cat_data = site.data.cats[category] -%}
+	{%- if cat_data.in_title -%}
+		{{- cat_data.name -}}
+		{{- ": " -}}
+	{%- endif -%}
 {%- endunless -%}
 {{- ye_post.title | escape }}

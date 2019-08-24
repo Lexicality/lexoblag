@@ -3,29 +3,29 @@ layout: base
 ---
 
 <div aria-labelledby="archive-title" id="page-archive" role="feed">
-    <header>
-        <h1 id="archive-title">
-            {% if page.nicename_lookup and page.autopages %}
-                {%
+	<header>
+		<h1 id="archive-title">
+			{% if page.nicename_lookup and page.autopages %}
+				{%
 					include nicename_title.html
 					kind=page.nicename_lookup
 					slug=page.autopages.display_name
 					title=page.title
 				%}
-            {% else %}
-                {{ page.title }}
-            {% endif %}
-        </h1>
+			{% else %}
+				{{ page.title }}
+			{% endif %}
+		</h1>
 
-        {{ content }}
-    </header>
+		{{ content }}
+	</header>
 
-    {% assign post_num = paginator.page | minus: 1 | times: paginator.per_page %}
-    {% assign total_posts = paginator.per_page | times: paginator.total_pages %}
+	{% assign post_num = paginator.page | minus: 1 | times: paginator.per_page %}
+	{% assign total_posts = paginator.per_page | times: paginator.total_pages %}
 
-    {% for post in paginator.posts %}
-        {% assign id = post.id | create_id %}
-        <article itemscope itemtype="https://schema.org/BlogPosting" tabindex="0" id="{{ id }}" class="archive-item" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc" aria-setsize="{{ total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
+	{% for post in paginator.posts %}
+		{% assign id = post.id | create_id %}
+		<article itemscope itemtype="https://schema.org/BlogPosting" tabindex="0" id="{{ id }}" class="archive-item" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc" aria-setsize="{{ total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
 			<header>
 				<h2 itemprop="headline" id="{{ id }}-title">
 					<a itemprop="url" href="{{ site.baseurl }}{{ post.url}}">
@@ -36,21 +36,21 @@ layout: base
 				{% include tags.html %}
 			</header>
 
-            <div id="{{ id }}-desc">
+			<div id="{{ id }}-desc">
 				{% unless post.excerpt contains '<p>' %}<p>{% endunless -%}
-                {{ post.excerpt }}
+				{{ post.excerpt }}
 				{%- unless post.excerpt contains '</p>' %}</p>{% endunless %}
-            </div>
+			</div>
 
-            {% if post.excerpt != post.content %}
-                <p>
-                    <a href="{{ site.baseurl }}{{ post.url }}">Continue reading</a>
-                </p>
-            {% endif %}
-        </article>
-    {% endfor %}
+			{% if post.excerpt != post.content %}
+				<p>
+					<a href="{{ site.baseurl }}{{ post.url }}">Continue reading</a>
+				</p>
+			{% endif %}
+		</article>
+	{% endfor %}
 
-    {% if paginator.page_trail %}
-        {% include pagination.html %}
-    {% endif %}
+	{% if paginator.page_trail %}
+		{% include pagination.html %}
+	{% endif %}
 </div>

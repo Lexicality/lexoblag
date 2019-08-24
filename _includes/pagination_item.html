@@ -1,20 +1,20 @@
 {% if include.num == paginator.page %}
-    {% assign current = true %}
+	{% assign current = true %}
 {% else %}
-    {% assign current = false %}
+	{% assign current = false %}
 {% endif %}
 <li class="
-    {{-}}
-    pagination-item
-    {%- if current %} -current{% endif -%}
+	{{-}}
+	pagination-item
+	{%- if current %} -current{% endif -%}
 ">
-    {{-}}
-    <a
-        href="{{ site.baseurl }}{{ include.path | replace: "index.html", "" }}"
-        title="page {{ include.num }}"
-        {% if current %}aria-current="page"{% endif %}
-    >
-        {{- include.num -}}
-    </a>
-    {{-}}
+	{{-}}
+	<a
+		href="{{ site.baseurl }}{{ include.path | replace: "index.html", "" }}"
+		title="page {{ include.num }}"
+		{% if current %}aria-current="page"{% endif %}
+	>
+		{{- include.num -}}
+	</a>
+	{{-}}
 </li>

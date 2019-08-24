@@ -1,5 +1,5 @@
 class Jekyll::CodeNormalizer < Jekyll::Converters::Markdown
-    def convert(content)
+	def convert(content)
 		super
 			.gsub(/
 				<div						# Start of this hell expression
@@ -28,5 +28,5 @@ class Jekyll::CodeNormalizer < Jekyll::Converters::Markdown
 				<\/code>
 			/x,
 			'<code\1class="\2\3\5highlight" data-lang="\4"\6</code>')
-    end
+	end
 end
