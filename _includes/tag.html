@@ -1,8 +1,10 @@
-{%- capture name %}{%
-	include nicename.html
-	kind='tags'
-	slug=tag
-%}{% endcapture -%}
+{%- capture name -%}
+	{%-
+		include nicename.html
+		kind='tags'
+		slug=tag
+	-%}
+{%- endcapture -%}
 <li class="tag">
 	{{-}}
 	<a href="{{ site.baseurl }}/blog/tag/{{ tag }}" aria-label="tag: {{ name }}" class="post-tag">

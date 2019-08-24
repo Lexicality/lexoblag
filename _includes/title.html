@@ -3,11 +3,22 @@
 {% elsif page.title %}
 	{% assign title = page.title %}
 	{% if page.nicename_lookup and page.autopages %}
-		{% capture title %}{% include nicename_title.html kind=page.nicename_lookup slug=page.autopages.display_name title=page.title %}{% endcapture %}
+		{% capture title -%}
+			{%-
+				include nicename_title.html
+				kind=page.nicename_lookup
+				slug=page.autopages.display_name
+				title=page.title
+			-%}
+		{%- endcapture %}
 	{% elsif page.collection == "posts" %}
-		{% capture title %}{% include article_title.html %}{% endcapture %}
+		{% capture title -%}
+			{%- include article_title.html -%}
+		{%- endcapture %}
 	{% endif %}
-	{{ title }} &mdash; {{ site.title }}
+	{{ title }}
+	&mdash;
+	{{ site.title }}
 {% else %}
 	{{ site.title }}
 {% endif %}

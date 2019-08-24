@@ -26,9 +26,9 @@
 			{% endif %}
 			{% for category in page.categories %}
 				{% assign depth = depth | plus: 1 %}
-				{% capture title %}
-					{% include nicename.html kind="cats" slug=category %}
-				{% endcapture %}
+				{% capture title -%}
+					{%- include nicename.html kind="cats" slug=category -%}
+				{%- endcapture %}
 				{% assign path = "/blog/" | append: category | append: "/" %}
 				{%
 					include breadcrumb_item.html

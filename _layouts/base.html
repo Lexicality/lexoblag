@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<title>{% include title.html %}</title>
 
-	<link rel="icon" href="/favicon.ico">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="/favicon.ico" rel="icon">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
 
 	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/modern-normalize-0.5.0.css" type="text/css">
 	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css" type="text/css">
 	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/syntax.css" type="text/css">
-	{% if page.in_blog %}{% feed_meta %}{% endif %}
+	{% if page.in_blog %}
+		{% feed_meta %}
+	{% endif %}
 
 	<!-- Prevent firefox rendering the page without css -->
 	<script> </script>
@@ -22,7 +23,7 @@
 		{% include header.html %}
 
 		<section id="page-content">
-		{{ content }}
+			{{ content }}
 		</section>
 
 		{% include footer.html %}

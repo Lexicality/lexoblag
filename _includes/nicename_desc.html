@@ -1,1 +1,3 @@
-{%- if site.data[include.kind][include.slug] %}{{ site.data[include.kind][include.slug].desc }}{% endif -%}
+{%- if site.data[include.kind][include.slug] -%}
+	{{- site.data[include.kind][include.slug].desc -}}
+{%- endif -%}
