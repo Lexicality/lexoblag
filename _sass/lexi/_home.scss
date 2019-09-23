@@ -1,43 +1,58 @@
 @import "./colours";
+@import "./breakpoints";
 
 #bio {
 	text-align: justify;
 }
 
-#proj {
-	margin-top: 15px;
-}
-
-#projects {
-	padding: 0px;
-}
-
-#projects:after {
-	content: "&nbsp";
-	display: block;
-	height: 0px;
-	clear: both;
-	visibility: hidden;
-}
-
-dl *.alternate {
-	background: $list-alt-bg-colour;
-}
-
 dt {
-	width: 22%;
-	clear: both;
-	float: left;
-	margin: 0px;
-	padding: 4px 1% 4px 0px;
-	text-align: right;
+	font-weight: 500;
+	margin: {
+		left: -0.1rem;
+		top: 0.25em;
+		right: 0;
+		bottom: 0.2em;
+	}
 }
 
 dd {
-	width: 76%;
-	clear: right;
-	float: right;
-	margin: 0px;
-	padding: 4px 0px 4px 1%;
-	text-align: left;
+	margin: 0;
+	padding-left: 0.1rem;
+}
+
+@supports (display: grid) {
+	@media only screen and (min-device-width: $bp-phone) {
+		// TODO: This should be imported from somewhere
+		$hz-padding: 3.125rem;
+
+		#projects {
+			& {
+				display: grid;
+				grid-template-columns: 25% auto;
+				// padding: 0;
+			}
+
+			dt,
+			dd {
+				margin: 0;
+				padding: 0.5em;
+			}
+
+			dt {
+				text-align: right;
+				// padding-left: $hz-padding;
+			}
+
+			dd {
+				// padding-right: $hz-padding;
+			}
+
+			& > * {
+				&:nth-child(4n),
+				&:nth-child(4n-1) {
+					background: $list-alt-bg-colour;
+				}
+			}
+		}
+	}
 }

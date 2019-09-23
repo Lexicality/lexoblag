@@ -23,6 +23,18 @@
                     path='/blog/'
                     title='Blog'
                 %}
+            {% elsif page.collection %}
+                {% assign collection = site.data.collections[page.collection] %}
+                {% if collection %}
+                    {% assign depth = depth | plus: 1 %}
+                    {%
+                        include breadcrumb_item.html
+                        current=false
+                        depth=depth
+                        path=collection.path
+                        title=collection.title
+                    %}
+                {% endif %}
             {% endif %}
             {% for category in page.categories %}
                 {% assign depth = depth | plus: 1 %}

@@ -79,6 +79,11 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-redirect-from
 
+collections:
+  projects:
+    output: true
+    foo: bar
+
 defaults:
   - scope:
       path: ""
@@ -88,6 +93,11 @@ defaults:
       path: "_posts"
     values:
       in_blog: true
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
 
 feed:
   path: "/blog/feed.xml"
