@@ -69,7 +69,7 @@ p:last-child {
 	margin-bottom: 1.5em;
 }
 
-@media only screen and (min-device-width: $bp-phone) {
+@media only screen and (min-width: $bp-phone) {
 	$hz-padding: 3.125rem;
 	$code-padding: 2em;
 	$margin-inset: 0.625rem;
@@ -80,7 +80,8 @@ p:last-child {
 		box-shadow: 5px 5px 10px #888;
 
 		@media (prefers-color-scheme: dark) {
-			box-shadow: 5px 5px 10px #222;
+			// box-shadow: 5px 5px 10px rgba(34, 34, 34, 0.7);
+			box-shadow: 2px 2px 20px #333;
 		}
 	}
 
@@ -125,7 +126,7 @@ p:last-child {
 	}
 }
 
-@media only screen and (min-device-width: $bp-ipad) {
+@media only screen and (min-width: $bp-ipad) {
 	#main {
 		margin-top: 50px;
 	}

@@ -44,7 +44,7 @@ h6 {
 	}
 }
 
-@media only screen and (min-device-width: $bp-phone) {
+@media only screen and (min-width: $bp-phone) {
 	body {
 		background: repeat url("../img/groovepaper.png") fixed $colour-bg;
 

@@ -22,7 +22,7 @@ dd {
 }
 
 @supports (display: grid) {
-	@media only screen and (min-device-width: $bp-phone) {
+	@media only screen and (min-width: $bp-phone) {
 		// TODO: This should be imported from somewhere
 		$hz-padding: 3.125rem;
 
