@@ -1,5 +1,5 @@
-@import "./colours";
 @import "./breakpoints";
+@import "./colours";
 
 body {
 	margin: 0;
@@ -80,7 +80,6 @@ p:last-child {
 		box-shadow: 5px 5px 10px #888;
 
 		@media (prefers-color-scheme: dark) {
-			// box-shadow: 5px 5px 10px rgba(34, 34, 34, 0.7);
 			box-shadow: 2px 2px 20px #333;
 		}
 	}
