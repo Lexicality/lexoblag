@@ -43,9 +43,7 @@ layout: base
 			</div>
 
 			{% if post.excerpt != post.content %}
-				<p>
-					<a href="{{ site.baseurl }}{{ post.url }}">Continue reading</a>
-				</p>
+				<a href="{{ site.baseurl }}{{ post.url }}" class="continue-reading">Continue reading</a>
 			{% endif %}
 		</article>
 	{% endfor %}

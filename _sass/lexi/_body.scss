@@ -38,11 +38,36 @@ p {
 }
 
 h1 {
-	padding: 0 ($hz-padding - $margin-inset);
+	$padding: $hz-padding - $margin-inset;
+	padding: 0 $padding;
+
+	> a {
+		display: block;
+		margin: -0.5em (-$padding);
+		padding: 0.5em $padding;
+	}
 }
 
 h2 {
-	padding: 0 ($hz-padding - ($margin-inset / 2));
+	$padding: $hz-padding - ($margin-inset / 2);
+	padding: 0 $padding;
+
+	> a {
+		display: block;
+		margin: -0.5em (-$padding);
+		padding: 0.5em $padding;
+	}
+}
+
+h3,
+h4,
+h5,
+h6 {
+	> a {
+		display: block;
+		margin: -0.5em (-$hz-padding);
+		padding: 0.5em $hz-padding;
+	}
 }
 
 // raw preformatted stuff
