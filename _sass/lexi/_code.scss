@@ -1,5 +1,11 @@
 @import "./colours";
 
+// raw preformatted stuff
+pre:not(.highlight) {
+	background: $colour-code-bg;
+	background: var(--colour-code-bg);
+}
+
 .rouge-table {
 	td {
 		padding: 1em 0;
@@ -8,7 +14,10 @@
 	$code-padding: 0.4em;
 
 	.gutter {
-		border-right: 1px solid darken($solarized-bg-colour, 10%);
+		// background-color: $colour-code-highlight;
+		// background-color: var(--colour-code-highlight);
+		border-right: 1px solid $colour-code-highlight;
+		border-right-color: var(--colour-code-highlight);
 		padding-right: $code-padding;
 	}
 

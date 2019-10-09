@@ -1,17 +1,98 @@
-$link-colour: rgb(0, 61, 94);
-$link-active-colour: rgb(0, 163, 191);
-$link-disabled-colour: #aaa;
+// https://www.colorbox.io/#steps=11#hue_start=188#hue_end=193#hue_curve=easeInQuad#sat_start=0#sat_end=43#sat_curve=easeInOutCirc#sat_rate=189#lum_start=100#lum_end=0#lum_curve=easeOutQuad#lock_hex=#038387#minor_steps_map=0
+// $c0: #ffffff;
+// $c5: #e2fafd;
+// $c10: #c6f6fb;
+// $c20: #95ecf3;
+// $c30: #69e0e9;
+// $c40: #44d1d9;
+// $c50: #27bdc4;
+// $c60: #11a4a9;
+// $c70: #038387;
+// $c80: #06565e;
+// $c90: #062930;
+// $c100: #000000;
 
-$body-text-colour:rgb(6, 13, 26);
-$body-bg-colour: white;
+// https://www.colorbox.io/#steps=11#hue_start=188#hue_end=193#hue_curve=easeInQuad#sat_start=0#sat_end=100#sat_curve=easeInOutCirc#sat_rate=189#lum_start=100#lum_end=0#lum_curve=easeOutQuad#lock_hex=038387#minor_steps_map=0
+$c0: #ffffff;
+$c5: #f4f7f8;
+$c10: #e8f0f1;
+$c20: #cde3e5;
+$c30: #a7d2d5;
+$c40: #6abcc1;
+$c50: #03a1a7;
+$c60: #038387;
+$c70: #02656d;
+$c80: #01444d;
+$c90: #002027;
+$c100: #000000;
 
-$list-alt-bg-colour: rgb(241, 246, 247);
+// $primary: $c70;
+$primary: $c60;
 
-$divider-colour: #ddd;
+$colour-text: $c100;
+$colour-text-dark: $c5;
 
-$solarized-bg-colour: #fdf6e3;
+$colour-bg: $c0;
+$colour-bg-dark: $c100;
 
-$tag-bg-colour: #ddd;
-$tag-border-colour: darken($tag-bg-colour, 5%);
-$tag-hover-bg-colour: darken($tag-bg-colour, 10%);
-$tag-hover-border-colour: darken($tag-border-colour, 10%);
+$colour-link: $primary;
+$colour-link-active: $c70;
+$colour-link-active-dark: $c50;
+$colour-link-disabled: #808080;
+
+$colour-heading: $c90;
+$colour-heading-dark: $c10;
+
+$colour-heading-link: $c70;
+$colour-heading-link-dark: $c40;
+$colour-heading-link-active: $colour-link-active;
+$colour-heading-link-active-dark: $colour-link-active-dark;
+
+$colour-tag-bg: $c10;
+$colour-tag-bg-dark: $c90;
+$colour-tag-text: $colour-text;
+$colour-tag-text-dark: $colour-text-dark;
+$colour-tag-hover-bg: darken($colour-tag-bg, 10%);
+$colour-tag-hover-bg-dark: lighten($colour-tag-bg-dark, 10%);
+
+// Solarized
+$colour-code-bg: #fdf6e3;
+$colour-code-highlight: #eee8d5;
+$colour-code-bg-dark: #002b36;
+$colour-code-highlight-dark: #073642;
+
+$colour-highlight: $c20;
+$colour-highlight-dark: $c90;
+
+:root {
+	// Light
+	--colour-bg: #{$colour-bg};
+	--colour-text: #{$colour-text};
+	--colour-heading: #{$colour-heading};
+	--colour-heading-link: #{$colour-heading-link};
+	--colour-heading-link-active: #{$colour-heading-link-active};
+	--colour-link: #{$colour-link};
+	--colour-link-active: #{$colour-link-active};
+	--colour-link-disabled: #{$colour-link-disabled};
+	--colour-tag-bg: #{$colour-tag-bg};
+	--colour-tag-text: #{$colour-tag-text};
+	--colour-tag-hover-bg: #{$colour-tag-hover-bg};
+	--colour-code-bg: #{$colour-code-bg};
+	--colour-code-highlight: #{$colour-code-highlight};
+	--colour-highlight: #{$colour-highlight};
+
+	@media (prefers-color-scheme: dark) {
+		--colour-bg: #{$colour-bg-dark};
+		--colour-text: #{$colour-text-dark};
+		--colour-heading: #{$colour-heading-dark};
+		--colour-heading-link: #{$colour-heading-link-dark};
+		--colour-heading-link-active: #{$colour-heading-link-active-dark};
+		--colour-link-active: #{$colour-link-active-dark};
+		--colour-tag-bg: #{$colour-tag-bg-dark};
+		--colour-tag-text: #{$colour-tag-text-dark};
+		--colour-tag-hover-bg: #{$colour-tag-hover-bg-dark};
+		--colour-code-bg: #{$colour-code-bg-dark};
+		--colour-code-highlight: #{$colour-code-highlight-dark};
+		--colour-highlight: #{$colour-highlight-dark};
+	}
+}

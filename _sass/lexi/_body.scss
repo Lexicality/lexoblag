@@ -6,11 +6,6 @@ body {
 	padding: 0;
 }
 
-#main {
-	background: $body-bg-colour;
-	color: $body-text-colour;
-}
-
 #page-content {
 	margin: 10px 0 15px;
 }
@@ -55,7 +50,6 @@ pre:not(.highlight) {
 	padding: $code-padding $hz-padding;
 	overflow: auto;
 	white-space: pre-wrap;
-	background: $solarized-bg-colour;
 }
 
 figure.highlight {
@@ -67,6 +61,7 @@ figure.highlight {
 		margin: 0;
 		padding: 0;
 		white-space: pre;
+		background: none;
 	}
 }
 
@@ -79,14 +74,14 @@ p:last-child {
 	$code-padding: 2em;
 	$margin-inset: 0.625rem;
 
-	body {
-		background: repeat url("../img/groovepaper.png") fixed;
-	}
-
 	#main {
 		margin: 30px auto;
 		width: 700px;
 		box-shadow: 5px 5px 10px #888;
+
+		@media (prefers-color-scheme: dark) {
+			box-shadow: 5px 5px 10px #222;
+		}
 	}
 
 	p,

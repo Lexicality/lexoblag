@@ -3,7 +3,8 @@
 $bp-phone: 768px;
 
 #page-footer {
-	border-top: 1px solid $divider-colour;
+	border-top: 1px solid $colour-highlight;
+	border-top-color: var(--colour-highlight);
 	padding: 10px 0 15px;
 
 	@media print {

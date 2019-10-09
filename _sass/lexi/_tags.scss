@@ -9,11 +9,6 @@ $padding: 0.5rem;
 $tap-target: 0.3rem;
 $mobile-tap-target: 0.5rem;
 
-$tag-background: $body-bg-colour;
-$tag-colour: $tag-bg-colour;
-$tag-hover: $tag-hover-bg-colour;
-$tag-text: $body-text-colour;
-
 $mobile-fade-width: 1.2rem;
 
 .tag-bar {
@@ -54,8 +49,14 @@ $mobile-fade-width: 1.2rem;
 			left: 0;
 			background: linear-gradient(
 				90deg,
-				$body-bg-colour 0%,
-				$body-bg-colour 20%,
+				$colour-bg 0%,
+				$colour-bg 20%,
+				transparent 100%
+			);
+			background: linear-gradient(
+				90deg,
+				var(--colour-bg) 0%,
+				var(--colour-bg) 20%,
 				transparent 100%
 			);
 		}
@@ -64,24 +65,29 @@ $mobile-fade-width: 1.2rem;
 			right: 0;
 			background: linear-gradient(
 				90deg,
-				transparent 0%,
-				$body-bg-colour 80%,
-				$body-bg-colour 100%
+				transparent 0%
+				$colour-bg 80%,
+				$colour-bg 100%,
+			);
+			background: linear-gradient(
+				90deg,
+				transparent 0%
+				var(--colour-bg) 80%,
+				var(--colour-bg) 100%,
 			);
 		}
 	}
 }
 
 .post-tag {
-	& {
+	&,
+	&:visited,
+	&:hover {
 		padding: $tap-target;
 		display: block;
-		color: $body-text-colour;
 		text-decoration: none;
-	}
-
-	&:hover {
-		color: $tag-text;
+		color: $colour-tag-text;
+		color: var(--colour-tag-text);
 	}
 
 	> .tag {
@@ -94,7 +100,8 @@ $mobile-fade-width: 1.2rem;
 
 		font-size: 0.9rem;
 
-		background: $tag-colour;
+		background: $colour-tag-bg;
+		background: var(--colour-tag-bg);
 
 		position: relative;
 	}
@@ -107,12 +114,17 @@ $mobile-fade-width: 1.2rem;
 		top: 0;
 		left: 0;
 
-		border: {
-			left: 0 solid $tag-background;
-			right: $arrow-size solid $tag-colour;
-			top: $arrow-sides solid $tag-background;
-			bottom: $arrow-sides solid $tag-background;
-		}
+		border-style: solid;
+
+		border-color: $colour-bg;
+		border-color: var(--colour-bg);
+		border-right-color: $colour-tag-bg;
+		border-right-color: var(--colour-tag-bg);
+
+		border-left-width: 0;
+		border-right-width: $arrow-size;
+		border-top-width: $arrow-sides;
+		border-bottom-width: $arrow-sides;
 	}
 
 	> .tag::after {
@@ -123,7 +135,9 @@ $mobile-fade-width: 1.2rem;
 		left: $arrow-size;
 		transform: translate(-50%, -50%);
 
-		background: $tag-background;
+		background: $colour-bg;
+		background: var(--colour-bg);
+
 		border-radius: 100%;
 		width: $hole-size;
 		height: $hole-size;
@@ -131,11 +145,13 @@ $mobile-fade-width: 1.2rem;
 
 	&:hover {
 		> .tag {
-			background-color: $tag-hover;
+			background: $colour-tag-hover-bg;
+			background: var(--colour-tag-hover-bg);
 		}
 
 		> .tag::before {
-			border-right-color: $tag-hover;
+			border-right-color: $colour-tag-hover-bg;
+			border-right-color: var(--colour-tag-hover-bg);
 		}
 	}
 }

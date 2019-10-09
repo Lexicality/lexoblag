@@ -2,9 +2,26 @@
 
 @mixin active-link {
 	&,
+	&:visited,
+	&:active,
 	&:hover {
 		font-weight: bold;
 		text-decoration: none;
-		color: $body-text-colour;
+		color: $colour-text;
+		color: var(--colour-text);
+	}
+}
+
+@mixin header-link {
+	&,
+	&:visited {
+		color: $colour-heading-link;
+		color: var(--colour-heading-link);
+	}
+
+	&:hover,
+	&:active {
+		color: $colour-heading-link-active;
+		color: var(--colour-heading-link-active);
 	}
 }

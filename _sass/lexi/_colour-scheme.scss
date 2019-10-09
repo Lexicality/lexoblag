@@ -1,0 +1,67 @@
+@import "./breakpoints";
+@import "./colours";
+@import "./mixins";
+
+html {
+	background: none;
+}
+
+body,
+#main {
+	// Fallback
+	background: $colour-bg;
+	color: $colour-text;
+	// Modern
+	background: var(--colour-bg);
+	color: var(--colour-text);
+}
+
+a {
+	&,
+	&:visited {
+		color: $colour-link;
+		color: var(--colour-link);
+	}
+
+	&:hover,
+	&:active {
+		color: $colour-link-active;
+		color: var(--colour-link-active);
+	}
+}
+;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $colour-heading;
+	color: var(--colour-heading);
+
+	> a {
+		@include header-link;
+	}
+}
+
+@media only screen and (min-device-width: $bp-phone) {
+	body {
+		background: repeat url("../img/groovepaper.png") fixed $colour-bg;
+
+		@media (prefers-color-scheme: dark) {
+			background: repeat url("../img/black_paper.png") fixed
+				$colour-bg-dark;
+		}
+
+		@media only screen and (-webkit-min-device-pixel-ratio: 2),
+			only screen and (min-resolution: 192dpi),
+			only screen and (min-resolution: 2dppx) {
+			background: repeat url("../img/groovepaper@2x.png") fixed $colour-bg;
+
+			@media (prefers-color-scheme: dark) {
+				background: repeat url("../img/black_paper@2x.png") fixed
+					$colour-bg-dark;
+			}
+		}
+	}
+}

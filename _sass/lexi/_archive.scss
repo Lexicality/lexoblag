@@ -9,15 +9,21 @@
 	.archive-short-item {
 		padding: 5px 50px;
 
-		&:nth-child(2n -1) {
-			background: $list-alt-bg-colour;
+		&:nth-child(2n) {
+			background: $colour-highlight;
+			background: var(--colour-highlight);
+		}
+
+		a {
+			@include header-link;
 		}
 	}
 }
 
 #page-archive {
 	.archive-item {
-		border-top: 1px solid $divider-colour;
+		border-top: 1px solid $colour-highlight;
+		border-top-color: var(--colour-highlight);
 	}
 }
 
@@ -34,7 +40,8 @@
 .pagination-link {
 	&.-disabled {
 		text-decoration: none;
-		color: $link-disabled-colour;
+		color: $colour-link-disabled;
+		color: var(--colour-link-disabled);
 		cursor: default;
 	}
 }

@@ -1,5 +1,6 @@
-@import "./colours";
 @import "./breakpoints";
+@import "./colours";
+@import "./mixins";
 
 #bio {
 	text-align: justify;
@@ -32,6 +33,10 @@ dd {
 				// padding: 0;
 			}
 
+			a {
+				@include header-link;
+			}
+
 			dt,
 			dd {
 				margin: 0;
@@ -50,7 +55,8 @@ dd {
 			& > * {
 				&:nth-child(4n),
 				&:nth-child(4n-1) {
-					background: $list-alt-bg-colour;
+					background: $colour-highlight;
+					background: var(--colour-highlight);
 				}
 			}
 		}
