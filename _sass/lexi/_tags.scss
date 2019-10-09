@@ -23,7 +23,9 @@ $mobile-fade-width: 1.2rem;
 	}
 }
 
-@media only screen and (max-width: $bp-phone) {
+// Use device-width instead of width to try and detect phones as the sideways
+//  scrolling tag bar looks terrible on desktops
+@media only screen and (max-device-width: $bp-phone) {
 	.tag-bar {
 		white-space: nowrap;
 		overflow: auto;
@@ -65,15 +67,15 @@ $mobile-fade-width: 1.2rem;
 			right: 0;
 			background: linear-gradient(
 				90deg,
-				transparent 0%
+				transparent 0%,
 				$colour-bg 80%,
-				$colour-bg 100%,
+				$colour-bg 100%
 			);
 			background: linear-gradient(
 				90deg,
-				transparent 0%
+				transparent 0%,
 				var(--colour-bg) 80%,
-				var(--colour-bg) 100%,
+				var(--colour-bg) 100%
 			);
 		}
 	}
