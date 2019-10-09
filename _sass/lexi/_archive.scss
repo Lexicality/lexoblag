@@ -7,7 +7,9 @@
 	padding: 0;
 
 	.archive-short-item {
-		padding: 5px 50px;
+		@extend .body-padding;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
 
 		&:nth-child(2n) {
 			background: $colour-highlight;
