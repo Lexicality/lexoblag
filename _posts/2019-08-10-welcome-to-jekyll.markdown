@@ -4,9 +4,15 @@ title: "Welcome to Jekyll!"
 date: 2019-08-10 20:07:51 +0100
 categories: [jekyll update, test]
 tags: [foo, bar baz, code]
+tech:
+    jekyll: 3.8.6
+    ruby: 2.5.1
+    foo: bar
 ---
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+
+Test abbr: <abbr title="Banana">abbr</abbr>
 
 <!-- more -->
 

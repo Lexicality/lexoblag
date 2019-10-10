@@ -1,0 +1,21 @@
+.post-technology {
+	& {
+		@extend .body-padding;
+	}
+
+	> .tech {
+		display: inline;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	> .tech > .item {
+		display: inline;
+		padding: 0.2em;
+
+		&:not(:last-child)::after {
+			content: ",";
+        }
+	}
+}

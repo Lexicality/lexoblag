@@ -1,0 +1,41 @@
+{%- assign ye_post = post | default: page -%}
+{%- if ye_post.tech -%}
+    <div class="post-technology">
+    <strong class="label">Tech used:  </strong>
+    <ul class="tech">
+        {%- for tech_item in ye_post.tech -%}
+            {%- assign key = tech_item[0] -%}
+            {%- assign version = tech_item[1] -%}
+            {%- assign datas = site.data.tech[key] -%}
+
+            <li class="item">
+                {%- if datas.url -%}
+                    <a href="{{datas.url}}">
+                {%- endif -%}
+
+                    {%- if datas.abbr -%}
+                        <abbr title="{{ datas.abbr }}">
+                    {%- endif -%}
+
+                    {%- if datas.name -%}
+                        {{- datas.name -}}
+                    {%- else -%}
+                        {{- key -}}
+                    {%- endif -%}
+
+                    {%- if datas.abbr -%}
+                        </abbr>
+                    {%- endif -%}
+
+                {%- if datas.url -%}
+                    </a>
+                {%- endif -%}
+
+                {{- ": " -}}
+
+                {{- version -}}
+            </li>
+        {%- endfor -%}
+    </ul>
+</div>
+{%- endif -%}

@@ -1,6 +1,11 @@
-
 hr {
 	margin: 20px 0;
+}
+
+abbr[title] {
+	text-decoration: none;
+	border-bottom: 1px dotted $colour-link;
+	border-bottom-color: var(--colour-link);
 }
 
 .print-only {
