@@ -42,9 +42,9 @@
 			{% if page.breadcrumb != true %}
 				{% assign title = page.breadcrumb %}
 			{% endif %}
-			{% if page.nicename_lookup and page.autopages %}
+			{% if layout.nicename_lookup and page.autopages %}
 				{% capture title -%}
-					{% include nicename_title.html kind=page.nicename_lookup slug=page.autopages.display_name title=title %}
+					{% include nicename_title.html kind=layout.nicename_lookup slug=page.autopages.display_name title=title %}
 				{%- endcapture %}
 			{% endif %}
 			{% if paginator %}

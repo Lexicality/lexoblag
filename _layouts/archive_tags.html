@@ -1,17 +1,7 @@
 ---
-layout: archive
+layout: archive_autopages
 nicename_lookup: tags
 breadcrumb: "Tag: :nicename"
 sitemap: false
 in_blog: true
 ---
-
-<p>
-{% if page.nicename_lookup and page.autopages %}
-	{%
-		include nicename_desc.html
-		kind=page.nicename_lookup
-		slug=page.autopages.display_name
-	%}
-{% endif %}
-</p>

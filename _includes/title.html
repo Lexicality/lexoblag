@@ -2,11 +2,11 @@
 	{{ page.page_title }}
 {% elsif page.title %}
 	{% assign title = page.title %}
-	{% if page.nicename_lookup and page.autopages %}
+	{% if layout.nicename_lookup and page.autopages %}
 		{% capture title -%}
 			{%-
 				include nicename_title.html
-				kind=page.nicename_lookup
+				kind=layout.nicename_lookup
 				slug=page.autopages.display_name
 				title=page.title
 			-%}
