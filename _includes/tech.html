@@ -5,7 +5,7 @@
     <ul class="tech">
         {%- for tech_item in ye_post.tech -%}
             {%- assign key = tech_item[0] -%}
-            {%- assign version = tech_item[1] -%}
+            {%- assign version = tech_item[1] | strip -%}
             {%- assign datas = site.data.tech[key] -%}
 
             <li class="item">
@@ -27,13 +27,14 @@
                         </abbr>
                     {%- endif -%}
 
+                    {%- unless version == "" -%}
+                        {{- " " -}}
+                        {{- version -}}
+                    {%- endunless -%}
+
                 {%- if datas.url -%}
                     </a>
                 {%- endif -%}
-
-                {{- ": " -}}
-
-                {{- version -}}
             </li>
         {%- endfor -%}
     </ul>
