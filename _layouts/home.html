@@ -21,11 +21,11 @@ layout: base
         <dl id="projects">
             {% for project in projects %}
                 <dt>
-                    {{-}}
+                    {{- "" -}}
                     <a href="{{ site.baseurl }}{{ project.url}}">
                         {{- project.title -}}
                     </a>
-                    {{-}}
+                    {{- "" -}}
                 </dt>
                 <dd>
                     {{- project.excerpt | remove: "<p>" | remove: "</p>" -}}
