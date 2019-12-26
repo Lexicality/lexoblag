@@ -1,0 +1,25 @@
+{%- assign ye_post = post | default: page -%}
+{%- if ye_post.links -%}
+    <div class="post-links">
+        <strong class="label">Links: </strong>
+        <ul class="links">
+            {%- for link in ye_post.links -%}
+                {%- assign key = link[0] -%}
+                {%- assign url = link[1] -%}
+                {%- assign datas = site.data.links[key] -%}
+
+                {{" "}}
+                <li class="link">
+                    <a href="{{url}}">
+
+                        {%- if datas.name -%}
+                            {{- datas.name -}}
+                        {%- else -%}
+                            {{- key -}}
+                        {%- endif -%}
+                    </a>
+                </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+{%- endif -%}

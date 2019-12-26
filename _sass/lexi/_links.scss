@@ -1,0 +1,23 @@
+.post-links {
+	& {
+		@extend .body-padding;
+	}
+
+	> .links {
+		display: inline;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	> .links > .link {
+		display: inline;
+
+		&::before {
+			content: "[";
+		}
+		&::after {
+			content: "]";
+		}
+	}
+}
