@@ -1,0 +1,50 @@
+/* TODO: Move the archive pagination into here too */
+@import "./breakpoints";
+@import "./colours";
+
+.article-pagination {
+	// @media only screen and (min-width: $bp-phone) {
+		& {
+			display: flex;
+            justify-content: space-between;
+            margin: 20px 0.7rem 22px;
+
+            @media only screen and (min-width: $bp-phone) {
+                margin: 20px 1.5rem 22px;
+            }
+		}
+
+		> .item {
+			flex: 1 1 33%;
+		}
+
+		> .item.-archives {
+			text-align: center;
+		}
+
+		> .item.-next {
+			text-align: right;
+		}
+	// }
+
+	> .item {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		word-break: break-all;
+		overflow: hidden;
+	}
+
+	.pagination-link {
+		&.-with-arrow {
+			&.-prev::before {
+				content: "← ";
+			}
+
+			// Hack to make sure the arrow shows after the elipsis
+			&.-next::before {
+				content: " →";
+				float: right;
+			}
+		}
+	}
+}

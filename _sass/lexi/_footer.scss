@@ -1,7 +1,7 @@
+@import "./breakpoints";
 @import "./colours";
 
-$bp-phone: 768px;
-
+#post-footer,
 #page-footer {
 	border-top: 1px solid $colour-highlight;
 	border-top-color: var(--colour-highlight);
@@ -10,6 +10,10 @@ $bp-phone: 768px;
 	@media print {
 		display: none;
 	}
+}
+
+#post-footer {
+	padding: 1px 0 0;
 }
 
 #footer-links {

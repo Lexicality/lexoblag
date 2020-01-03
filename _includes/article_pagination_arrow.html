@@ -1,0 +1,29 @@
+{%- assign item = include.item -%}
+{%- if item or include.no_item_text -%}
+    <a
+        class="
+            pagination-link
+            -{{ include.rel }}
+            {% if include.show_arrow %}-with-arrow{% endif %}
+            {% unless item %}-disabled{% endunless %}
+        "
+        rel="{{ include.rel }}"
+        {% if item %}
+            href="{{ site.baseurl }}{{ item.url }}"
+        {% else %}
+            ariadisabled="true"
+            onclick="return false"
+            href="#"
+        {% endif %}
+    >
+        <span class="title">
+            {%- if item -%}
+                {{- include.prefix -}}
+                {{- item.title -}}
+                {{- include.postfix -}}
+            {%- else -%}
+                {{- include.no_item_text -}}
+            {%- endif -%}
+        </span>
+    </a>
+{%- endif -%}

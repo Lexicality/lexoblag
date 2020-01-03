@@ -1,0 +1,44 @@
+<div class="article-pagination">
+    <div class="item -prev">
+        {%
+            include article_pagination_arrow.html
+            item=page.previous
+            show_arrow=include.show_arrow
+            rel="prev"
+            no_item_text=include.no_prev_text
+            prefix=include.prev_prefix
+            postfix=include.prev_postfix
+        %}
+    </div>
+    <div class="item -archives">
+        {% assign collection = site.data.collections[page.collection] %}
+        {% if page.in_blog or collection %}
+            <a
+                class="pagination-link -archives"
+                rel="archives"
+                {% if page.in_blog %}
+                    href="{{ site.baseurl }}/blog/"
+                {% else %}
+                    href="{{ site.baseurl }}{{ collection.path }}"
+                {% endif %}
+            >
+                {%- if page.in_blog -%}
+                    All Posts
+                {%- else -%}
+                    All {{ collection.title }}
+                {%- endif -%}
+            </a>
+        {% endif %}
+    </div>
+    <div class="item -next">
+        {%
+            include article_pagination_arrow.html
+            item=page.next
+            show_arrow=include.show_arrow
+            rel="next"
+            no_item_text=include.no_next_text
+            prefix=include.next_prefix
+            postfix=include.next_postfix
+        %}
+    </div>
+</div>

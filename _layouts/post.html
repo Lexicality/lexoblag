@@ -10,4 +10,14 @@ layout: base
 
 	{{ content }}
 
+	<footer id="post-footer">
+		{%
+			include article_pagination.html
+			show_arrow=true
+			prev_prefix="Older: "
+			no_prev_text="No older posts"
+			next_prefix="Newer: "
+			no_next_text="No newer posts"
+		%}
+	</footer>
 </article>
