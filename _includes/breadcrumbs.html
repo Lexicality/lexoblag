@@ -3,7 +3,7 @@
 		<ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
 			{% assign depth = 1 %}
 			{% capture title -%}
-				<img id="home-icon" role="presentation" src="/favicon.ico">
+				<img id="home-icon" role="presentation" src="{{ "/favicon.ico" | relative_url }}">
 				{{-}}
 				{{ site.url | replace: "https:", "http:" | replace: "http:", "" | replace: "/", "" }}
 			{%- endcapture %}
