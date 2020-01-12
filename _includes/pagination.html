@@ -15,7 +15,7 @@
 			aria-disabled="true"
 			onclick="return false"
 		{% endif %}
-		href="{{ site.baseurl }}{{ paginator.previous_page_path | default: paginator.first_page_path }}"
+		href="{{ paginator.previous_page_path | absolute_url | default: paginator.first_page_path }}"
 	>
 		{{- "&larr; Previous" -}}
 	</a>
@@ -47,7 +47,7 @@
 			aria-disabled="true"
 			onclick="return false"
 		{% endif %}
-		href="{{ site.baseurl }}{{ paginator.next_page_path | default: paginator.last_page_path }}"
+		href="{{ paginator.next_page_path | absolute_url | default: paginator.last_page_path }}"
 	>
 		{{- "Next &rarr;" -}}
 	</a>

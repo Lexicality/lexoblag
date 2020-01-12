@@ -28,7 +28,7 @@ layout: base
 		<article itemscope itemtype="https://schema.org/BlogPosting" tabindex="0" id="{{ id }}" class="archive-item" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc" aria-setsize="{{ total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
 			<header>
 				<h2 itemprop="headline" id="{{ id }}-title">
-					<a itemprop="url" href="{{ site.baseurl }}{{ post.url}}">
+					<a itemprop="url" href="{{ post.url | absolute_url }}">
 						{% include article_title.html %}
 					</a>
 				</h2>
@@ -43,7 +43,7 @@ layout: base
 			</div>
 
 			{% if post.excerpt != post.content %}
-				<a href="{{ site.baseurl }}{{ post.url }}" class="continue-reading">Continue reading</a>
+				<a href="{{ post.url | absolute_url }}" class="continue-reading">Continue reading</a>
 			{% endif %}
 		</article>
 	{% endfor %}

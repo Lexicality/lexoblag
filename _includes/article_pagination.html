@@ -17,9 +17,9 @@
                 class="pagination-link -archives"
                 rel="archives"
                 {% if page.in_blog %}
-                    href="{{ site.baseurl }}/blog/"
+                    href="{{ "/blog/" | absolute_url }}"
                 {% else %}
-                    href="{{ site.baseurl }}{{ collection.path }}"
+                    href="{{ collection.path | absolute_url }}"
                 {% endif %}
             >
                 {%- if page.in_blog -%}

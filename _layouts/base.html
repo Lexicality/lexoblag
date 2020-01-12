@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<title>{% include title.html %}</title>
 
-	<link href="/favicon.ico" rel="icon">
+	<link href="{{ "/favicon.ico" | relative_url }}" rel="icon">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<style>@media (prefers-color-scheme: dark){html,body{background: black;color:white}}</style>
 
-	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/modern-normalize-0.5.0.css" type="text/css">
-	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css" type="text/css">
-	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/syntax.css" type="text/css">
+	<link rel="stylesheet" href="{{ "/assets/css/modern-normalize-0.5.0.css" | relative_url }}" type="text/css">
+	<link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}" type="text/css">
+	<link rel="stylesheet" href="{{ "/assets/css/syntax.css" | relative_url }}" type="text/css">
 	{% if page.in_blog %}
 		{% feed_meta %}
 	{% endif %}

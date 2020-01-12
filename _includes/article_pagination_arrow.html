@@ -9,7 +9,7 @@
         "
         rel="{{ include.rel }}"
         {% if item %}
-            href="{{ site.baseurl }}{{ item.url }}"
+            href="{{ item.url | absolute_url }}"
         {% else %}
             ariadisabled="true"
             onclick="return false"
