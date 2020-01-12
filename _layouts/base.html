@@ -14,6 +14,13 @@
 	{% if page.in_blog %}
 		{% feed_meta %}
 	{% endif %}
+	<link rel="canonical" href="
+	{%- if page.canonical_url -%}
+		{{- page.canonical_url -}}
+	{%- else -%}
+		{{ page.url | absolute_url | replace: "index.html", "" }}
+	{%- endif -%}
+	">
 
 	<!-- Prevent firefox rendering the page without css -->
 	<script> </script>
