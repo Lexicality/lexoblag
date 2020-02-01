@@ -28,7 +28,7 @@ layout: base
                     {{- "" -}}
                 </dt>
                 <dd>
-                    {{- project.excerpt | remove: "<p>" | remove: "</p>" -}}
+                    {{- project.blurb -}}
                 </dd>
             {% endfor %}
         </dl>
