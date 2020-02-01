@@ -8,9 +8,9 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<style>@media (prefers-color-scheme: dark){html,body{background: black;color:white}}</style>
 
-	<link rel="stylesheet" href="{{ "/assets/css/modern-normalize-0.5.0.css" | relative_url }}" type="text/css">
-	<link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}" type="text/css">
-	<link rel="stylesheet" href="{{ "/assets/css/syntax.css" | relative_url }}" type="text/css">
+	{% asset "modern-normalize-0.5.0.css" %}
+	{% asset "styles.css" %}
+	{% asset "syntax.css" %}
 	{% if page.in_blog %}
 		{% feed_meta %}
 	{% endif %}

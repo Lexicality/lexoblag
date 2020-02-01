@@ -1,6 +1,7 @@
 @import "./breakpoints";
 @import "./colours";
 @import "./mixins";
+// cache bust
 
 html {
 	background: none;
@@ -9,10 +10,10 @@ html {
 body,
 #main {
 	// Fallback
-	background: $colour-bg;
+	background: $colour-bg fixed repeat;
 	color: $colour-text;
 	// Modern
-	background: var(--colour-bg);
+	background-color: var(--colour-bg);
 	color: var(--colour-text);
 }
 
@@ -29,7 +30,7 @@ a {
 		color: var(--colour-link-active);
 	}
 }
-;
+
 h1,
 h2,
 h3,
@@ -46,21 +47,21 @@ h6 {
 
 @media only screen and (min-width: $bp-phone) {
 	body {
-		background: repeat url("../img/groovepaper.png") fixed $colour-bg;
-
-		@media (prefers-color-scheme: dark) {
-			background: repeat url("../img/black_paper.png") fixed
-				$colour-bg-dark;
+		& {
+			background-image: asset_url("groovepaper.png");
 		}
 
-		@media only screen and (-webkit-min-device-pixel-ratio: 2),
-			only screen and (min-resolution: 192dpi),
-			only screen and (min-resolution: 2dppx) {
-			background: repeat url("../img/groovepaper@2x.png") fixed $colour-bg;
+		@media (prefers-color-scheme: dark) {
+			background-image: asset_url("black_paper.png");
+		}
+
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+			& {
+				background-image: asset_url("groovepaper@2x.png");
+			}
 
 			@media (prefers-color-scheme: dark) {
-				background: repeat url("../img/black_paper@2x.png") fixed
-					$colour-bg-dark;
+				background-image: asset_url("black_paper@2x.png");
 			}
 		}
 	}
