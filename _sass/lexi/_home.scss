@@ -2,27 +2,36 @@
 @import "./colours";
 @import "./mixins";
 
+$hz-padding: 1.2rem;
+
 #bio {
 	text-align: justify;
 }
 
-dt {
-	font-weight: 500;
-	margin: {
-		left: -0.1rem;
-		top: 0.25em;
-		right: 0;
-		bottom: 0.2em;
+#projects {
+	dt {
+		& {
+			font-weight: 500;
+			border-top: 1px solid $colour-highlight;
+			border-top-color: var(--colour-highlight);
+		}
 	}
 
 	a {
 		display: block;
+		padding: 0.5rem $hz-padding;
+		padding-left: $hz-padding - 0.1rem;
 	}
-}
 
-dd {
-	margin: 0;
-	padding-left: 0.1rem;
+	dd {
+		margin: 0;
+		padding: {
+			left: $hz-padding + 0.1rem;
+			right: $hz-padding;
+			top: 0.2rem;
+			bottom: 1rem;
+		}
+	}
 }
 
 @supports (display: grid) {
@@ -45,6 +54,7 @@ dd {
 			dd {
 				margin: 0;
 				padding: 0.5em;
+				border: none;
 			}
 
 			dt {
