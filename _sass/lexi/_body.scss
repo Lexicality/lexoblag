@@ -6,6 +6,15 @@ body {
 	padding: 0;
 }
 
+// IE11
+main {
+	display: block;
+}
+
+a img {
+	border: none;
+}
+
 #page-content {
 	margin: 10px 0 15px;
 }

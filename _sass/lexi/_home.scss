@@ -9,12 +9,15 @@ $hz-padding: 1.2rem;
 }
 
 #projects {
+	dd,
 	dt {
-		& {
-			font-weight: 500;
-			border-top: 1px solid $colour-highlight;
-			border-top-color: var(--colour-highlight);
-		}
+		margin: 0;
+	}
+
+	dt {
+		font-weight: 500;
+		border-top: 1px solid $colour-highlight;
+		border-top-color: var(--colour-highlight);
 	}
 
 	a {
@@ -24,7 +27,6 @@ $hz-padding: 1.2rem;
 	}
 
 	dd {
-		margin: 0;
 		padding: {
 			left: $hz-padding + 0.1rem;
 			right: $hz-padding;
@@ -32,38 +34,43 @@ $hz-padding: 1.2rem;
 			bottom: 1rem;
 		}
 	}
-}
 
-@supports (display: grid) {
 	@media only screen and (min-width: $bp-phone) {
 		// TODO: This should be imported from somewhere
 		$hz-padding: 3.125rem;
 
-		#projects {
+		a {
+			padding: 0.5rem $hz-padding;
+			padding-left: $hz-padding - 0.1rem;
+		}
+
+		dd {
+			padding: {
+				left: $hz-padding + 0.1rem;
+				right: $hz-padding;
+			}
+		}
+
+		@supports (display: grid) {
 			& {
 				display: grid;
 				grid-template-columns: 25% auto;
-				// padding: 0;
 			}
 
 			a {
 				@include header-link;
-			}
 
-			dt,
-			dd {
-				margin: 0;
 				padding: 0.5em;
-				border: none;
+				height: 100%;
 			}
 
 			dt {
 				text-align: right;
-				// padding-left: $hz-padding;
+				border: none;
 			}
 
 			dd {
-				// padding-right: $hz-padding;
+				padding: 0.5em;
 			}
 
 			& > * {

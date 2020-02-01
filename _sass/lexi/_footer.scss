@@ -36,7 +36,7 @@
 
 	@media only screen and (min-width: $bp-phone) {
 		li {
-			flex: initial;
+			flex: 0 1 auto;
 			padding: 0;
 		}
 
