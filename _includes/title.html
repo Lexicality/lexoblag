@@ -1,24 +1,24 @@
-{% if page.page_title %}
-	{{ page.page_title }}
-{% elsif page.title %}
-	{% assign title = page.title %}
-	{% if layout.nicename_lookup and page.autopages %}
-		{% capture title -%}
+{%- if page.page_title -%}
+	{{- page.page_title -}}
+{%- elsif page.title -%}
+	{%- assign title = page.title -%}
+	{%- if layout.nicename_lookup and page.autopages -%}
+		{%- capture title -%}
 			{%-
 				include nicename_title.html
 				kind=layout.nicename_lookup
 				slug=page.autopages.display_name
 				title=page.title
 			-%}
-		{%- endcapture %}
-	{% elsif page.collection == "posts" %}
-		{% capture title -%}
+		{%- endcapture -%}
+	{%- elsif page.collection == "posts" -%}
+		{%- capture title -%}
 			{%- include article_title.html -%}
 		{%- endcapture %}
-	{% endif %}
-	{{ title }}
-	&mdash;
-	{{ site.title }}
-{% else %}
-	{{ site.title }}
-{% endif %}
+	{%- endif -%}
+	{{- title -}}
+	{{- " &mdash; "-}}
+	{{- site.title -}}
+{%- else -%}
+	{{ site.title -}}
+{%- endif -%}
