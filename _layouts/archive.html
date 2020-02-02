@@ -21,11 +21,14 @@ layout: base
 	</header>
 
 	{% assign post_num = paginator.page | minus: 1 | times: paginator.per_page %}
-	{% assign total_posts = paginator.per_page | times: paginator.total_pages %}
 
 	{% for post in paginator.posts %}
 		{% assign id = post.id | create_id %}
-		<article itemscope itemtype="https://schema.org/BlogPosting" tabindex="0" id="{{ id }}" class="archive-item" aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc" aria-setsize="{{ total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
+		<article
+			itemscope itemtype="https://schema.org/{% if page.in_blog %}BlogPosting{% else %}Article{% endif %}"
+			tabindex="0" id="{{ id }}" class="archive-item"
+			aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc"
+			aria-setsize="{{ paginator.total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
 			<header>
 				<h2 itemprop="headline" id="{{ id }}-title">
 					<a itemprop="url" href="{{ post.url | absolute_url }}">
