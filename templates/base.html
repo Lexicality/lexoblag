@@ -4,12 +4,12 @@
 	<meta charset="utf-8">
 	<title>{% include "includes/title.html" %}</title>
 
-	<link href="{{ "/favicon.ico" | asseturl }}" rel="icon">
+	<link href="{{ '/favicon.ico' | asseturl }}" rel="icon">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<style>@media (prefers-color-scheme: dark){html,body{background: black;color:white}}</style>
 
 	{% for file in ["modern-normalize-0.5.0.css" , "styles.scss.css" , "syntax.css"] %}
-		<link rel="stylesheet" type="text/css" href="{{ "css/{}".format(file) | asseturl }}">
+		<link rel="stylesheet" type="text/css" href="{{ 'css/{}'.format(file) | asseturl }}">
 	{% endfor %}
 
 	{# {% if page.in_blog %}

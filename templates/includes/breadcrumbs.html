@@ -3,7 +3,7 @@
 		<ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
 			{% set depth = 1 %}
 			{% set title -%}
-				<img id="home-icon" role="presentation" src="{{ "/favicon.ico" | asseturl }}">
+				<img id="home-icon" role="presentation" src="{{ '/favicon.ico' | asseturl }}">
 				{{-}}
 				{{ site.url | replace: "https:", "http:" | replace: "http:", "" | replace: "/", "" }}
 			{%- endset %}
