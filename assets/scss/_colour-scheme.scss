@@ -48,20 +48,20 @@ h6 {
 @media only screen and (min-width: $bp-phone) {
 	body {
 		& {
-			background-image: asset_url("groovepaper.png");
+			background-image: url("/img/groovepaper.png?v=1");
 		}
 
 		@media (prefers-color-scheme: dark) {
-			background-image: asset_url("black_paper.png");
+			background-image: url("/img/black_paper.png?v=1");
 		}
 
 		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 			& {
-				background-image: asset_url("groovepaper@2x.png");
+				background-image: url("/img/groovepaper@2x.png?v=1");
 			}
 
 			@media (prefers-color-scheme: dark) {
-				background-image: asset_url("black_paper@2x.png");
+				background-image: url("/img/black_paper@2x.png?v=1");
 			}
 		}
 	}
