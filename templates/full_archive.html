@@ -1,6 +1,4 @@
----
-layout: base
----
+{% extends "base.html" %}
 
 <header>
 	<h1>{{ page.title }}</h1>
@@ -10,8 +8,8 @@ layout: base
 
 <ol id="full-archive">
 {% for post in site.posts %}
-	{% assign id = post.id | create_id %}
-	{% assign category = post.categories | first %}
+	{% set id = post.id | create_id %}
+	{% set category = post.categories | first %}
 	<li
 		id="{{ id }}"
 		class="archive-short-item"

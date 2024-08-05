@@ -1,13 +1,11 @@
----
-layout: base
----
+{% extends "base.html" %}
 <article aria-labelledby="post-heading" itemscope itemtype="https://schema.org/BlogPosting">
 	<header>
-		<h1 itemprop="headline" id="post-heading">{% include article_title.html %}</h1>
+		<h1 itemprop="headline" id="post-heading">{% include "includes/article_title.html" %}</h1>
 		<link rel="author" itemprop="author" href="{{ site.url }}"  />
 		<!-- TODO: Date modified etc -->
-		{% include tags.html %}
-		{% include tech.html %}
+		{% include "includes/tags.html" %}
+		{% include "includes/tech.html" %}
 	</header>
 
 	<div itemprop="articleBody">

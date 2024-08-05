@@ -1,6 +1,4 @@
----
-layout: base
----
+{% extends "base.html" %}
 
 <div aria-labelledby="archive-title" id="page-archive" role="feed">
 	<header>
@@ -20,10 +18,10 @@ layout: base
 		{{ content }}
 	</header>
 
-	{% assign post_num = paginator.page | minus: 1 | times: paginator.per_page %}
+	{% set post_num = paginator.page | minus: 1 | times: paginator.per_page %}
 
 	{% for post in paginator.posts %}
-		{% assign id = post.id | create_id %}
+		{% set id = post.id | create_id %}
 		<article
 			itemscope itemtype="https://schema.org/{% if page.in_blog %}BlogPosting{% else %}Article{% endif %}"
 			tabindex="0" id="{{ id }}" class="archive-item"
@@ -32,11 +30,11 @@ layout: base
 			<header>
 				<h2 itemprop="headline" id="{{ id }}-title">
 					<a itemprop="url" href="{{ post.url | absolute_url }}">
-						{% include article_title.html %}
+						{% include "includes/article_title.html" %}
 					</a>
 				</h2>
 
-				{% include tags.html %}
+				{% include "includes/tags.html" %}
 			</header>
 
 			<div id="{{ id }}-desc">
@@ -52,6 +50,6 @@ layout: base
 	{% endfor %}
 
 	{% if paginator.page_trail %}
-		{% include pagination.html %}
+		{% include "includes/pagination.html" %}
 	{% endif %}
 </div>

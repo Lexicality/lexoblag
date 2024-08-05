@@ -1,12 +1,12 @@
-{%- assign ye_post = post | default: page -%}
+{%- set ye_post = post | default: page -%}
 {%- if ye_post.tech -%}
     <div class="post-technology">
     <strong class="label">Tech used:  </strong>
     <ul class="tech">
         {%- for tech_item in ye_post.tech -%}
-            {%- assign key = tech_item[0] -%}
-            {%- assign version = tech_item[1] | strip -%}
-            {%- assign datas = site.data.tech[key] -%}
+            {%- set key = tech_item[0] -%}
+            {%- set version = tech_item[1] | strip -%}
+            {%- set datas = site.data.tech[key] -%}
 
             <li class="item">
                 {%- if datas.url -%}

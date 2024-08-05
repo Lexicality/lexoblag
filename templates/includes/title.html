@@ -1,20 +1,20 @@
 {%- if page.page_title -%}
 	{{- page.page_title -}}
-{%- elsif page.title -%}
-	{%- assign title = page.title -%}
+{%- elif page.title -%}
+	{%- set title = page.title -%}
 	{%- if layout.nicename_lookup and page.autopages -%}
-		{%- capture title -%}
+		{%- set title -%}
 			{%-
 				include nicename_title.html
 				kind=layout.nicename_lookup
 				slug=page.autopages.display_name
 				title=page.title
 			-%}
-		{%- endcapture -%}
-	{%- elsif page.collection == "posts" -%}
-		{%- capture title -%}
+		{%- endset -%}
+	{%- elif page.collection == "posts" -%}
+		{%- set title -%}
 			{%- include article_title.html -%}
-		{%- endcapture %}
+		{%- endset %}
 	{%- endif -%}
 	{{- title -}}
 	{{- " &mdash; "-}}

@@ -11,7 +11,7 @@
         %}
     </div>
     <div class="item -archives">
-        {% assign collection = site.data.collections[page.collection] %}
+        {% set collection = site.data.collections[page.collection] %}
         {% if page.in_blog or collection %}
             <a
                 class="pagination-link -archives"

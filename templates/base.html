@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>{% include title.html %}</title>
+	<title>{% include "includes/title.html" %}</title>
 
 	<link href="{{ "/favicon.ico" | relative_url }}" rel="icon">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
@@ -28,13 +28,13 @@
 
 <body class="{{ page.layout }}">
 	<main id="main">
-		{% include header.html %}
+		{% include "includes/header.html" %}
 
 		<section id="page-content">
 			{{ content }}
 		</section>
 
-		{% include footer.html %}
+		{% include "includes/footer.html" %}
 	</main>
 </body>
 

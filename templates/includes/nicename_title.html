@@ -1,4 +1,4 @@
-{%- capture nn -%}
+{%- set nn -%}
     {%- include nicename.html kind=include.kind slug=include.slug -%}
-{%- endcapture -%}
+{%- endset -%}
 {{- include.title | replace: ':nicename', nn -}}

@@ -1,13 +1,11 @@
----
-layout: base
----
+{% extends "base.html" %}
 <article aria-labelledby="project-heading" itemscope itemtype="https://schema.org/Article">
 
 <header id="project-header">
     <h1 id="project-heading" itemprop="headline">{{ page.title }}</h1>
     <p id="project-description" itemprop="abstract">{{ page.blurb }}</p>
-    {% include links.html %}
-    {% include tech.html %}
+    {% include "includes/links.html" %}
+    {% include "includes/tech.html" %}
 </header>
 
 <div itemprop="articleBody">

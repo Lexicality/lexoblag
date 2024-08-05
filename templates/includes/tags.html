@@ -1,5 +1,5 @@
-{%- assign ye_post = post | default: page -%}
-{% assign num_tags = ye_post.tags | size %}
+{%- set ye_post = post | default: page -%}
+{% set num_tags = ye_post.tags | size %}
 {% if num_tags > 0 %}
 	<div class="body-padding tag-bar-holder">
 		<ol class="tag-bar">
