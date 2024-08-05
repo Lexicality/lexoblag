@@ -1,0 +1,12 @@
+[project]
+name = "Lexi's Website"
+locale = en_GB
+url = "https://lex.me.uk"
+url_style = absolute
+# Match Jekyll's output path to ease the transition
+output_path = _site
+
+[packages]
+lektor-scss = 1.5.0
+lektor-slugify = 0.4
+lektor-jinja-helpers = 0.1.0
