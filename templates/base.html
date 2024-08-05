@@ -8,17 +8,18 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<style>@media (prefers-color-scheme: dark){html,body{background: black;color:white}}</style>
 
-	{% asset "modern-normalize-0.5.0.css" %}
-	{% asset "styles.css" %}
-	{% asset "syntax.css" %}
-	{% if page.in_blog %}
+	{% for file in ["modern-normalize-0.5.0.css" , "styles.scss.css" , "syntax.css"] %}
+		<link rel="stylesheet" type="text/css" href="{{ "css/{}".format(file) | asseturl }}">
+	{% endfor %}
+
+	{# {% if page.in_blog %}
 		{% feed_meta %}
-	{% endif %}
+	{% endif %} #}
 	<link rel="canonical" href="
-	{%- if page.canonical_url -%}
-		{{- page.canonical_url -}}
+	{%- if this.canonical_url -%}
+		{{- this.canonical_url -}}
 	{%- else -%}
-		{{ page.url | url }}
+		{{ this | url }}
 	{%- endif -%}
 	">
 
@@ -26,15 +27,17 @@
 	<script> </script>
 </head>
 
-<body class="{{ page.layout }}">
+<body class="{{ this.layout }}">
 	<main id="main">
+		{% block main %}
 		{% include "includes/header.html" %}
 
 		<section id="page-content">
-			{{ content }}
+			{% block content %}{% endblock %}
 		</section>
 
 		{% include "includes/footer.html" %}
+		{% endblock main %}
 	</main>
 </body>
 

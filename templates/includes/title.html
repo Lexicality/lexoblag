@@ -1,8 +1,8 @@
-{%- if page.page_title -%}
-	{{- page.page_title -}}
-{%- elif page.title -%}
-	{%- set title = page.title -%}
-	{%- if layout.nicename_lookup and page.autopages -%}
+{%- if this.title_override -%}
+	{{- this.title -}}
+{%- elif this.title -%}
+	{%- set title = this.title -%}
+	{# {%- if layout.nicename_lookup and page.autopages -%}
 		{%- set title -%}
 			{%-
 				include nicename_title.html
@@ -15,10 +15,10 @@
 		{%- set title -%}
 			{%- include article_title.html -%}
 		{%- endset %}
-	{%- endif -%}
+	{%- endif -%} #}
 	{{- title -}}
-	{{- " &mdash; "-}}
-	{{- site.title -}}
+	{{- " &mdash; " | safe -}}
+	{{- site.root.title -}}
 {%- else -%}
-	{{ site.title -}}
+	{{ site.root.title }}
 {%- endif -%}
