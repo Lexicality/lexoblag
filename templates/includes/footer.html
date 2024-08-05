@@ -3,26 +3,26 @@
 		<ul id="footer-links">
 			{#
 			<li>
-				<a href="{{ '/blog/' | url }}">Blog</a>
+				<a href="{{ '/blog' | url }}">Blog</a>
 			</li>
 			#}
 			<li>
 				<a href="{{ '/CV' | url }}">CV</a>
 			</li>
 			<li>
-				<a href="mailto:{{ site.email }}">Email</a>
+				<a href="mailto:{{ bag('footer', 'email') }}">Email</a>
 			</li>
 			<li>
-				<a href="https://twitter.com/{{ site.twitter_username }}">Twitter</a>
+				<a href="https://twitter.com/{{ bag('footer', 'twitter_username') }}">Twitter</a>
 			</li>
 			<li>
-				<a href="https://keybase.io/{{ site.keybase_username}}">Keybase</a>
+				<a href="https://keybase.io/{{ bag('footer', 'keybase_username') }}">Keybase</a>
 			</li>
 			<li>
-				<a href="https://github.com/{{ site.github_username }}">GitHub</a>
+				<a href="https://github.com/{{ bag('footer', 'github_username') }}">GitHub</a>
 			</li>
 			<li>
-				<a href="http://steamcommunity.com/id/{{ site.steam_username }}">Steam</a>
+				<a href="http://steamcommunity.com/id/{{ bag('footer', 'steam_username') }}">Steam</a>
 			</li>
 		</ul>
 	</nav>
