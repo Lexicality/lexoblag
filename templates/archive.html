@@ -29,7 +29,7 @@
 			aria-setsize="{{ paginator.total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
 			<header>
 				<h2 itemprop="headline" id="{{ id }}-title">
-					<a itemprop="url" href="{{ post.url | absolute_url }}">
+					<a itemprop="url" href="{{ post.url | url }}">
 						{% include "includes/article_title.html" %}
 					</a>
 				</h2>
@@ -44,7 +44,7 @@
 			</div>
 
 			{% if post.excerpt != post.content %}
-				<a href="{{ post.url | absolute_url }}" class="continue-reading">Continue reading</a>
+				<a href="{{ post.url | url }}" class="continue-reading">Continue reading</a>
 			{% endif %}
 		</article>
 	{% endfor %}

@@ -16,7 +16,7 @@
 		data-date="{{post.date | date_to_xmlschema | escape}}"
 		data-category="{{ category | escape }}"
 	>
-		<a href="{{ post.url | absolute_url }}">
+		<a href="{{ post.url | url }}">
 			{{ post.date  | date_to_string: "ordinal", "UK" }}
 			-
 			{%

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>{% include "includes/title.html" %}</title>
 
-	<link href="{{ "/favicon.ico" | relative_url }}" rel="icon">
+	<link href="{{ "/favicon.ico" | asseturl }}" rel="icon">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<style>@media (prefers-color-scheme: dark){html,body{background: black;color:white}}</style>
 
@@ -18,7 +18,7 @@
 	{%- if page.canonical_url -%}
 		{{- page.canonical_url -}}
 	{%- else -%}
-		{{ page.url | absolute_url | replace: "index.html", "" }}
+		{{ page.url | url }}
 	{%- endif -%}
 	">
 

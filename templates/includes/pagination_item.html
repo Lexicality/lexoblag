@@ -10,7 +10,7 @@
 ">
 	{{-}}
 	<a
-		href="{{ include.path | absolute_url | replace: "index.html", "" }}"
+		href="{{ include.path | url }}"
 		title="page {{ include.num }}"
 		{% if current %}aria-current="page"{% endif %}
 	>

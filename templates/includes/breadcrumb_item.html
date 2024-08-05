@@ -6,7 +6,7 @@
 	{% if include.current %}aria-current="page"{% endif %}
 >
 	<a
-		href="{{ include.path | absolute_url | replace: "index.html", "" }}"
+		href="{{ include.path | url }}"
 		itemprop="item"
 	>
 		{{-}}
