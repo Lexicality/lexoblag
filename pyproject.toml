@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "lexoblag"
+package-mode = false
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+[tool.poetry.group.dev.dependencies]
+Lektor = "~3"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "0.5.7"
+mypy = "1.11.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+extend-select = [
+	"C4",  # flake8-comprehensions
+	"COM", # flake8-commas
+	"DTZ", # flake8-datetimez
+	"FA",  # flake8-future-annotations
+	"G",   # flake8-logging-format
+	"I",   # isort
+	"INP", # flake8-no-pep420
+	"ISC", # flake8-implicit-str-concat
+	"LOG", # flake8-logging
+	"PIE", # flake8-pie
+	"T10", # flake8-debugger
+	"T20", # flake8-print
+	"UP",  # pyupgrade
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+known-first-party = ["microservice", "testapp"]
+
+
+[tool.mypy]
+ignore_missing_imports = true
+exclude = [
+	# Again, please stop linting virtualenvs
+	# (mypy will still follow imports into the venv but this stops it auto-discovering site packages)
+	"^.venv/",
+]
