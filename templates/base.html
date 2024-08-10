@@ -30,7 +30,16 @@
 <body class="{{ this.layout }}">
 	<main id="main">
 		{% block main %}
-		{% include "includes/header.html" %}
+		{% block page_header_wrapper %}
+			<header id="page-header">
+				{% block page_header %}
+				{% if this.show_breadcrumbs != false %}
+					{% include "includes/breadcrumbs.html" %}
+				{% endif %}
+				{% endblock page_header %}
+			</header>
+		{% endblock page_header_wrapper %}
+
 
 		<section id="page-content">
 			{% block content %}{% endblock %}

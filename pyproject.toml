@@ -22,6 +22,9 @@ build-backend = "poetry.core.masonry.api"
 [tool.ruff]
 target-version = "py312"
 
+[tool.ruff.format]
+indent-style = "tab"
+
 [tool.ruff.lint]
 extend-select = [
 	"C4",  # flake8-comprehensions
@@ -37,6 +40,11 @@ extend-select = [
 	"T10", # flake8-debugger
 	"T20", # flake8-print
 	"UP",  # pyupgrade
+]
+
+[tool.ruff.lint.per-file-ignores]
+"setup.py" = [
+	"INP", # setup.py is not part of a package
 ]
 
 [tool.ruff.lint.isort]

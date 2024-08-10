@@ -1,88 +1,27 @@
-{% if page.breadcrumb %}
-	<nav aria-label="breadcrumbs" id="breadcrumbs">
-		<ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
-			{% set depth = 1 %}
-			{% set title -%}
-				<img id="home-icon" role="presentation" src="{{ '/favicon.ico' | asseturl }}">
-				{{-}}
-				{{ site.url | replace: "https:", "http:" | replace: "http:", "" | replace: "/", "" }}
-			{%- endset %}
-			{%
-				include breadcrumb_item.html
-				current=false
-				depth=depth
-				path='/'
-				title=title
-			%}
-			{% if page.in_blog %}
-				{% set depth = depth | plus: 1 %}
-				{%
-					include breadcrumb_item.html
-					current=false
-					depth=depth
-					path='/blog/'
-					title='Blog'
-				%}
-			{% elif page.collection and site.data.collections[page.collection] %}
-				{% set depth = depth | plus: 1 %}
-				{% set collection = site.data.collections[page.collection] %}
-				{%
-					include breadcrumb_item.html
-					current=false
-					depth=depth
-					path=collection.path
-					title=collection.title
-				%}
-			{% endif %}
-			{% for category in page.categories %}
-				{% set depth = depth | plus: 1 %}
-				{% set title -%}
-					{%- include nicename.html kind="cats" slug=category -%}
-				{%- endset %}
-				{% set path = "/blog/" | append: category | append: "/" %}
-				{%
-					include breadcrumb_item.html
-					current=false
-					depth=depth
-					path=path
-					title=title
-				%}
-			{% endfor %}
-			{% set title = page.title %}
-			{% if page.breadcrumb != true %}
-				{% set title = page.breadcrumb %}
-			{% endif %}
-			{% if layout.nicename_lookup and page.autopages %}
-				{% set title -%}
-					{% include "includes/nicename_title.html" kind=layout.nicename_lookup slug=page.autopages.display_name title=title %}
-				{%- endset %}
-			{% endif %}
-			{% if paginator %}
-				{% set is_singular = false %}
-				{% set path = paginator.first_page_path %}
-			{% else %}
-				{% set is_singular = true %}
-				{% set path = page.url %}
-			{% endif %}
-			{% set depth = depth | plus: 1 %}
-			{%
-				include breadcrumb_item.html
-				current=is_singular
-				depth=depth
-				path=path
-				title=title
-			%}
-			{% unless is_singular %}
-				{% set depth = depth | plus: 1 %}
-				{% set title = "Page " | append: paginator.page %}
-				{%
-					include breadcrumb_item.html
-					current=true
-					depth=depth
-					path=page.url
-					title=title
-				%}
-			{% endunless %}
-		</ol>
-	</nav>
-{% endif %}
+<nav aria-label="breadcrumbs" id="breadcrumbs">
+	<ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+		{%- for breadcrumb in get_breadcrumbs(this) %}
+			<li
+				class="crumb{% if breadcrumb.current %} -current{% endif %}"
+				itemprop="itemListElement"
+				itemscope
+				itemtype="https://schema.org/ListItem"
+				{%- if breadcrumb.current %}
+				aria-current="page"
+				{%- endif -%}
+			>
+				<a href="{{ breadcrumb.url }}" itemprop="item" >
+					{#--#}
+					<span itemprop="name">
+						{%- if breadcrumb.depth == 1 -%}
+							<img id="home-icon" role="presentation" src="{{ '/favicon.ico' | asseturl }}">
+						{%- endif -%}
+						{{- breadcrumb.title -}}
+						</span>
+					{#--#}
+				</a>
+				<meta itemprop="position" content="{{ breadcrumb.depth }}"/>
+			</li>
+		{%- endfor %}
+	</ol>
+</nav>
