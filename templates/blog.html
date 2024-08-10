@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-TODO - blog archive
+<h1>TODO - Blog Archive</h1>
+
+{{ this.body }}
+
+<ol>
+  {% for child in this.pagination.items %}
+   <li><a href="{{ child | url}}">{{ child.title }}</a></li>
+  {% endfor %}
+</ol>
 {% endblock content %}

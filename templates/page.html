@@ -4,4 +4,10 @@
 
 {{ this.body }}
 
+<ol>
+  {% for child in this.children %}
+   <li><a href="{{ child | url}}">{{ child.title }}</a></li>
+  {% endfor %}
+</ol>
+
 {% endblock content %}
