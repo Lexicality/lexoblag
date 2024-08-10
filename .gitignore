@@ -1,8 +1,4 @@
-*.gem
-.bundle
 _site
-.sass-cache
-Gemfile.lock
 # Compiled files
 assets/css/*.scss.css
 # temp
