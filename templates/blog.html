@@ -9,4 +9,7 @@
    <li><a href="{{ child | url}}">{{ child.title }}</a></li>
   {% endfor %}
 </ol>
+{% if this.pagination and this.pagination.pages > 1 %}
+	{% include "includes/pagination.html" %}
+{% endif %}
 {% endblock content %}

@@ -1,9 +1,6 @@
 <nav aria-label="page navigation" id="pagination-container">
-	{% set first_page = paginator.page_trail | first %}
-	{% set last_page = paginator.page_trail | last %}
-	{% set penultimate_page_num = paginator.last_page | minus: 1 %}
-	{% if paginator.previous_page %}{% set no_prev = false %}{% else %}{% set no_prev = true %}{% endif %}
-	{% if paginator.next_page %}{% set no_next = false %}{% else %}{% set no_next = true %}{% endif %}
+	{% set no_prev = not this.pagination.has_prev %}
+	{% set no_next = not this.pagination.has_next %}
 	<a
 		class="
 			pagination-link
@@ -15,26 +12,33 @@
 			aria-disabled="true"
 			onclick="return false"
 		{% endif %}
-		href="{{ paginator.previous_page_path | url | default: paginator.first_page_path }}"
+		href="{{ this.pagination.prev | default(this.pagination.current, true) | url }}"
 	>
-		{{- "&larr; Previous" -}}
+		{{- "&larr; Previous" | safe -}}
 	</a>
 	<ol id="pagination">
-		{% if first_page.num != 1 %}
-			{% include "includes/pagination_item.html" num=paginator.first_page path=paginator.first_page_path %}
-			{% if first_page.num != 2 %}
+		{%- for page in this.pagination.iter_pages(1, 1, 1, 1) %}
+			{% if page -%}
+				{%- set current = page == this.pagination.page -%}
+				<li class="
+					{#--#}
+					pagination-item
+					{%- if current %} -current{% endif -%}
+				">
+					{#--#}
+					<a
+						href="{{ '@{}'.format(page) | url }}"
+						title="page {{ page }}"
+						{% if current %}aria-current="page"{% endif %}
+					>
+						{{- "{:n}".format(page) -}}
+					</a>
+					{#--#}
+				</li>
+			{%- else -%}
 				<li class="pagination-item -hellip">&hellip;</li>
-			{% endif %}
-		{% endif %}
-		{% for trail in paginator.page_trail %}
-			{% include "includes/pagination_item.html" num=trail.num path=trail.path %}
-		{% endfor %}
-		{% if last_page.num != paginator.last_page %}
-			{% if last_page.num != penultimate_page_num %}
-				<li class="pagination-item -hellip">&hellip;</li>
-			{% endif %}
-			{% include "includes/pagination_item.html" num=paginator.last_page path=paginator.last_page_path %}
-		{% endif %}
+			{%- endif -%}
+		{%- endfor -%}
 	</ol>
 	<a
 		class="
@@ -47,8 +51,8 @@
 			aria-disabled="true"
 			onclick="return false"
 		{% endif %}
-		href="{{ paginator.next_page_path | url | default: paginator.last_page_path }}"
+		href="{{ this.pagination.next | default(this.pagination.current, true) | url }}"
 	>
-		{{- "Next &rarr;" -}}
+		{{- "Next &rarr;" | safe -}}
 	</a>
 </nav>
