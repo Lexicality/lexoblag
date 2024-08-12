@@ -1,14 +1,12 @@
 @import "./colours";
 
-
 #project-description {
-    font-size: smaller;
-    font-style: italic;
+	font-size: smaller;
+	font-style: italic;
 }
 
 #project-header {
 	border-bottom: 1px solid $colour-highlight;
-    border-bottom-color: var(--colour-highlight);
-    padding-bottom: 15px;
-
+	border-bottom-color: var(--colour-highlight);
+	padding-bottom: 15px;
 }

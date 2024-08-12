@@ -4,27 +4,27 @@
 
 .article-pagination {
 	// @media only screen and (min-width: $bp-phone) {
-		& {
-			display: flex;
-            justify-content: space-between;
-            margin: 20px 0.7rem 22px;
+	& {
+		display: flex;
+		justify-content: space-between;
+		margin: 20px 0.7rem 22px;
 
-            @media only screen and (min-width: $bp-phone) {
-                margin: 20px 1.5rem 22px;
-            }
+		@media only screen and (min-width: $bp-phone) {
+			margin: 20px 1.5rem 22px;
 		}
+	}
 
-		> .item {
-			flex: 1 1 33%;
-		}
+	> .item {
+		flex: 1 1 33%;
+	}
 
-		> .item.-archives {
-			text-align: center;
-		}
+	> .item.-archives {
+		text-align: center;
+	}
 
-		> .item.-next {
-			text-align: right;
-		}
+	> .item.-next {
+		text-align: right;
+	}
 	// }
 
 	> .item {

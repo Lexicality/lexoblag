@@ -16,6 +16,6 @@
 
 		&:not(:last-child)::after {
 			content: ",";
-        }
+		}
 	}
 }
