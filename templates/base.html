@@ -20,7 +20,7 @@
 	{%- if this.canonical_url -%}
 		{{- this.canonical_url -}}
 	{%- else -%}
-		{{ this | url }}
+		{{ this | url(external=true) }}
 	{%- endif -%}
 	">
 	{%- endif %}

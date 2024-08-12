@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 
+{% block content %}
 <div itemscope itemtype="http://schema.org/Person">
-	<h1 itemprop="name">{{ page.title }}</h1>
-	<link href="{{ site.url | url }}" itemprop="url">
+	<h1 itemprop="name">{{ this.title }}</h1>
+	<link href="{{ site.root | url(external=true) }}" itemprop="url">
 
     <div itemprop="description">
-        {{ content }}
+        {{ this.body }}
     </div>
 
-    {% set projects = site.projects | where: "featured", true | sort: "priority", "last" %}
+    {% set projects = site.query("/projects").filter(F.featured == true).order_by("priority", "title") %}
 
     {% if projects %}
         <h2>My Projects</h2>
         <p>I tend to start
-            <a href="{{ '/projects/' | url }}">a lot of projects</a>, even if I don't see them all to completion.
+            <a href="{{ '/projects' | url }}">a lot of projects</a>, even if I don't see them all to completion.
             <br>Here's a selection of older ones:
         </p>
         <dl id="projects">
             {% for project in projects %}
                 <dt>
-                    {{- "" -}}
-                    <a href="{{ project.url | url }}">
+                    {#--#}
+                    <a href="{{ project | url }}">
                         {{- project.title -}}
                     </a>
-                    {{- "" -}}
+                    {#--#}
                 </dt>
                 <dd>
                     {{- project.blurb -}}
@@ -32,3 +33,4 @@
         </dl>
     {% endif %}
 </div>
+{% endblock content %}
