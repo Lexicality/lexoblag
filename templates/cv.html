@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block content %}
 <style>
 	h1 {
 		text-align: center;
@@ -29,8 +30,9 @@
 	}
 </style>
 
-{{ content }}
+{{ this.body }}
 
 <p id="online-notice">
 	For a PDF version (with contact information), please contact me using the link below.
 </p>
+{% endblock %}
