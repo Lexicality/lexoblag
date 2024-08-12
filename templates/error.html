@@ -1,6 +1,8 @@
 {% extends "page.html" %}
-{{ content }}
 
+{% block content %}
+{{ super() }}
 <p>
     <a href="{{ '/' | url }}">Return to home</a>?
 </p>
+{% endblock content %}

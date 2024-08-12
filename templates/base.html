@@ -15,6 +15,7 @@
 	{# {% if page.in_blog %}
 		{% feed_meta %}
 	{% endif %} #}
+	{%- if not this.no_canonical %}
 	<link rel="canonical" href="
 	{%- if this.canonical_url -%}
 		{{- this.canonical_url -}}
@@ -22,6 +23,7 @@
 		{{ this | url }}
 	{%- endif -%}
 	">
+	{%- endif %}
 
 	<!-- Prevent firefox rendering the page without css -->
 	<script> </script>
