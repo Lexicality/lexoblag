@@ -1,10 +1,10 @@
 <nav aria-label="breadcrumbs" id="breadcrumbs">
-	<ol class="crumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+	<ol class="crumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
 		{%- for breadcrumb in get_breadcrumbs(this) %}
 			<li
 				class="crumb{% if breadcrumb.current %} -current{% endif %}"
 				itemprop="itemListElement"
-				itemscope
+				itemscope=""
 				itemtype="https://schema.org/ListItem"
 				{%- if breadcrumb.current %}
 				aria-current="page"
@@ -14,7 +14,7 @@
 					{#--#}
 					<span itemprop="name">
 						{%- if breadcrumb.depth == 1 -%}
-							<img id="home-icon" role="presentation" src="{{ '/favicon.ico' | asseturl }}">
+							<img id="home-icon" role="presentation" src="{{ '/favicon.ico' | asseturl }}" />
 						{%- endif -%}
 						{{- breadcrumb.title -}}
 						</span>

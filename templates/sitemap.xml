@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="{{ "/sitemap.xslt" | url }}" ?>
+<urlset
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	{%- set utc = helpers.import_module("datetime").UTC -%}
+	{%- for page in [site.root] if page != this recursive -%}
+		<url>
+			{#--#}
+			<loc>
+				{{- page | url(external=true) -}}
+			</loc>
+			{%- if page.last_mod -%}
+			<lastmod>
+				{#-
+					The lektor-git-timestamp plugin gets the last modified as
+					UTC, passes it to python without a timezone which does the
+					"obvious" thing and automatically converts it to the system
+					timezone (Europe/London) and shoves it into a naive datetime
+					which we then need to attach a timezone to in order to
+					include it in the sitemap.
+
+					Helpfully (?) `astimezone` assumes naive datetimes are in
+					the system timezone so this isn't an unrecoverable mess, but
+					it's quite annoying.
+
+					I've gone for UTC rather than sticking with the system
+					timezone purely because it makes the XSLT output neater
+				-#}
+				{{- page.last_mod.astimezone(utc).isoformat() -}}
+			</lastmod>
+			{%- endif -%}
+		</url>
+		{{- loop(page.children | sort(attribute="path")) -}}
+	{%- endfor -%}
+</urlset>

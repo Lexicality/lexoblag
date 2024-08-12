@@ -1,0 +1,5 @@
+Sitemap: https://lex.me.uk/sitemap.xml
+
+# WIP
+User-agent: *
+Disallow: /blog/
