@@ -1,12 +1,10 @@
-{%- set ye_post = post | default: page -%}
+{% macro post_tech(ye_post) -%}
 {%- if ye_post.tech -%}
     <div class="post-technology">
     <strong class="label">Tech used:  </strong>
     <ul class="tech">
-        {%- for tech_item in ye_post.tech -%}
-            {%- set key = tech_item[0] -%}
-            {%- set version = tech_item[1] | strip -%}
-            {%- set datas = site.data.tech[key] -%}
+        {%- for (key, version) in ye_post.tech.items() -%}
+            {%- set datas = bag("tech", key) -%}
 
             <li class="item">
                 {%- if datas.url -%}
@@ -27,10 +25,10 @@
                         </abbr>
                     {%- endif -%}
 
-                    {%- unless version == "" -%}
+                    {%- if version != "" -%}
                         {{- " " -}}
                         {{- version -}}
-                    {%- endunless -%}
+                    {%- endif -%}
 
                 {%- if datas.url -%}
                     </a>
@@ -40,3 +38,4 @@
     </ul>
 </div>
 {%- endif -%}
+{%- endmacro %}

@@ -1,20 +1,9 @@
-{% extends "base.html" %}
-<article aria-labelledby="project-heading" itemscope itemtype="https://schema.org/Article">
+{% extends "article.html" %}
+{% from "macros/links.html" import post_links %}
+{% from "macros/tech.html" import post_tech %}
 
-<header id="project-header">
-    <h1 id="project-heading" itemprop="headline">{{ page.title }}</h1>
-    <p id="project-description" itemprop="abstract">{{ page.blurb }}</p>
-    {% include "includes/links.html" %}
-    {% include "includes/tech.html" %}
-</header>
-
-<div itemprop="articleBody">
-{{ content }}
-</div>
-
-<footer id="project-footer">
-    {%
-        include article_pagination.html
-        show_arrow=true
-    %}
-</footer>
+{% block post_header %}
+    <p id="project-description" itemprop="abstract">{{ this.blurb }}</p>
+	{{ post_links(this) }}
+	{{ post_tech(this) }}
+{% endblock post_header %}

@@ -1,24 +1,15 @@
 {%- if this.title_override -%}
 	{{- this.title -}}
-{%- elif this.title -%}
-	{%- set title = this.title -%}
-	{# {%- if layout.nicename_lookup and page.autopages -%}
-		{%- set title -%}
-			{%-
-				include nicename_title.html
-				kind=layout.nicename_lookup
-				slug=page.autopages.display_name
-				title=page.title
-			-%}
-		{%- endset -%}
-	{%- elif page.collection == "posts" -%}
-		{%- set title -%}
-			{%- include article_title.html -%}
-		{%- endset %}
-	{%- endif -%} #}
-	{{- title -}}
-	{{- " &mdash; " | safe -}}
-	{{- site.root.title -}}
 {%- else -%}
-	{{ site.root.title }}
+	{%- for page in [this] recursive -%}
+		{%- if page.title -%}
+			{{- page.title -}}
+			{%- if page.parent -%}
+				{{- " &mdash; " | safe -}}
+			{%- endif -%}
+		{%- endif -%}
+		{%- if page.parent -%}
+			{{- loop([page.parent]) -}}
+		{%- endif -%}
+	{%- endfor -%}
 {%- endif -%}

@@ -1,19 +1,17 @@
-{%- set ye_post = post | default: page -%}
+{% macro post_links(ye_post) -%}
 {%- if ye_post.links -%}
     <div class="post-links">
         <strong class="label">Links: </strong>
         <ul class="links">
-            {%- for link in ye_post.links -%}
-                {%- set key = link[0] -%}
-                {%- set url = link[1] -%}
-                {%- set datas = site.data.links[key] -%}
+            {%- for (key, url) in ye_post.links.items() -%}
+                {%- set datas = bag("links", key) -%}
 
                 {{" "}}
                 <li class="link">
                     <a href="{{url}}">
 
-                        {%- if datas.name -%}
-                            {{- datas.name -}}
+                        {%- if datas -%}
+                            {{- datas -}}
                         {%- else -%}
                             {{- key -}}
                         {%- endif -%}
@@ -23,3 +21,4 @@
         </ul>
     </div>
 {%- endif -%}
+{% endmacro %}
