@@ -1,0 +1,98 @@
+{% macro article_title(post) -%}
+{# TODO: Categories go here
+{%- unless post.autopages -%}
+	{%- set category = post.categories | first -%}
+	{%- set cat_data = site.data.cats[category] -%}
+	{%- if cat_data.in_title -%}
+		{{- cat_data.name -}}
+		{{- ": " -}}
+	{%- endif -%}
+{%- endunless -%}
+-#}
+{{ post.title }}
+{%- endmacro %}
+
+{% macro article_pagination_arrow(
+	item,
+	rel,
+	prefix="",
+	postfix="",
+	no_item_text="",
+	show_arrow=true
+) -%}
+{%- if item or no_item_text -%}
+    <a
+        class="
+            pagination-link
+            -{{ rel }}
+            {% if show_arrow %}-with-arrow{% endif %}
+            {% if not item %}-disabled{% endif %}
+        "
+        rel="{{ rel }}"
+        {% if item %}
+            href="{{ item | url }}"
+        {% else %}
+            aria-disabled="true"
+            onclick="return false"
+            href="#"
+        {% endif %}
+    >
+        <span class="title">
+            {%- if item -%}
+                {{- prefix -}}
+                {{- item.title -}}
+                {{- postfix -}}
+            {%- else -%}
+                {{- no_item_text -}}
+            {%- endif -%}
+        </span>
+    </a>
+{%- endif -%}
+{%- endmacro %}
+
+{% macro article_pagination (
+	post,
+	collection_override="",
+	prev_prefix="",
+	prev_postfix="",
+	no_prev_text="",
+	next_prefix="",
+	next_postfix="",
+	no_next_text="",
+	show_arrow=true
+) -%}
+{%- set siblings = post.get_siblings() -%}
+<div class="article-pagination">
+    <div class="item -prev">
+        {{ article_pagination_arrow(
+            item=siblings.prev_page,
+            show_arrow=show_arrow,
+            rel="prev",
+            no_item_text=no_prev_text,
+            prefix=prev_prefix,
+            postfix=prev_postfix,
+        ) }}
+    </div>
+    <div class="item -archives">
+		<a
+			class="pagination-link -archives"
+			rel="archives"
+			href="{{ post.parent | url }}"
+		>
+			{#--#}
+			All
+			{{ collection_override | default(post.parent.title, true) -}}
+		</a>
+    </div>
+    <div class="item -next">
+        {{ article_pagination_arrow(
+            item=siblings.next_page,
+            show_arrow=show_arrow,
+            rel="next",
+            no_item_text=no_next_text,
+            prefix=next_prefix,
+            postfix=next_postfix,
+        ) }}
+    </div>
+</div>
+{%- endmacro %}

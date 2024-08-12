@@ -1,33 +1,23 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>TODO - Blog Post ({{ this.title }})</h1>
+{% extends "article.html" %}
+{% from "macros/article.html" import article_pagination %}
 
-{{ this.body }}
+{% block article_type -%}
+	BlogPosting
+{%- endblock article_type %}
 
-{% endblock content %}
-{#
-<article aria-labelledby="post-heading" itemscope itemtype="https://schema.org/BlogPosting">
-	<header>
-		<h1 itemprop="headline" id="post-heading">{% include "includes/article_title.html" %}</h1>
-		<link rel="author" itemprop="author" href="{{ site.url }}"  />
-		<!-- TODO: Date modified etc -->
-		{% include "includes/tags.html" %}
-		{% include "includes/tech.html" %}
-	</header>
+{#% block post_header %}
+	<!-- TODO: Date modified etc -->
+	{% include "includes/tags.html" %}
+	{% include "includes/tech.html" %}
+{% endblock post_header %#}
 
-	<div itemprop="articleBody">
-	{{ content }}
-	</div>
-
-	<footer id="post-footer">
-		{%
-			include article_pagination.html
-			show_arrow=true
-			prev_prefix="Older: "
-			no_prev_text="No older posts"
-			next_prefix="Newer: "
-			no_next_text="No newer posts"
-		%}
-	</footer>
-</article>
-#}
+{% block post_footer %}
+	{{ article_pagination(
+		this,
+		collection_override="Posts",
+		prev_prefix="Older: ",
+		no_prev_text="No older posts",
+		next_prefix="Newer: ",
+		no_next_text="No newer posts"
+	) }}
+{% endblock post_footer %}

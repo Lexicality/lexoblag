@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "macros/article.html" import article_title, article_pagination %}
+{% block content %}
+<article
+	id="single-post"
+	class="-{{ this._model }}"
+	aria-labelledby="post-heading"
+	itemscope
+	itemtype="https://schema.org/{% block article_type -%}Article{%- endblock article_type %}"
+>
+	<header id="post-header">
+		<h1 itemprop="headline" id="post-heading">{{ article_title(this) }}</h1>
+		<link rel="author" itemprop="author" href="{{ site.root | url(external=true) }}"  />
+		{% block post_header %}
+		{% endblock post_header %}
+	</header>
+
+	<div itemprop="articleBody">
+		{%- block post_content -%}
+			{{ this.body }}
+		{%- endblock post_content -%}
+	</div>
+
+	<footer id="post-footer">
+		{%- block post_footer -%}
+			{{ article_pagination(this) }}
+		{%- endblock post_footer -%}
+	</footer>
+</article>
+{% endblock content %}
