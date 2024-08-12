@@ -1,55 +1,52 @@
 {% extends "base.html" %}
+{% from "macros/article.html" import article_title %}
 
+{% block content %}
 <div aria-labelledby="archive-title" id="page-archive" role="feed">
 	<header>
 		<h1 id="archive-title">
-			{% if layout.nicename_lookup and page.autopages %}
-				{%
-					include nicename_title.html
-					kind=layout.nicename_lookup
-					slug=page.autopages.display_name
-					title=page.title
-				%}
-			{% else %}
-				{{ page.title }}
-			{% endif %}
+			{{- this.title -}}
 		</h1>
 
-		{{ content }}
+		{% if this.pagination.page == 1 %}
+			{{ this.body }}
+		{% endif %}
 	</header>
 
-	{% set post_num = paginator.page | minus: 1 | times: paginator.per_page %}
+	{%- set paginator = this.pagination -%}
+	{%- set post_num = (paginator.page - 1) * paginator.per_page -%}
 
-	{% for post in paginator.posts %}
-		{% set id = post.id | create_id %}
+	{%- for post in paginator.items -%}
+		{%- set id = post._slug %}
+		{%- set excerpt = post.body | helpers.excerpt_html %}
 		<article
-			itemscope itemtype="https://schema.org/{% if page.in_blog %}BlogPosting{% else %}Article{% endif %}"
-			tabindex="0" id="{{ id }}" class="archive-item"
+			itemscope itemtype="https://schema.org/{% block article_type -%}Article{%- endblock article_type %}"
+			tabindex="0" id="{{ id }}" class="archive-item -{{ this._model }}"
 			aria-labelledby="{{ id }}-title" aria-describedby="{{ id }}-desc"
-			aria-setsize="{{ paginator.total_posts }}" aria-posinset={{ post_num | plus: forloop.index }}>
+			aria-setsize="{{ paginator.total }}" aria-posinset={{ post_num + loop.index }}>
 			<header>
 				<h2 itemprop="headline" id="{{ id }}-title">
-					<a itemprop="url" href="{{ post.url | url }}">
-						{% include "includes/article_title.html" %}
+					<a itemprop="url" href="{{ post | url }}">
+						{{ article_title(post) }}
 					</a>
 				</h2>
 
-				{% include "includes/tags.html" %}
+				{% block post_header %}
+				{% endblock post_header %}
 			</header>
 
 			<div id="{{ id }}-desc">
-				{% unless post.excerpt contains '<p>' %}<p>{% endunless -%}
-				{{ post.excerpt }}
-				{%- unless post.excerpt contains '</p>' %}</p>{% endunless %}
+				{{ excerpt }}
 			</div>
 
-			{% if post.excerpt != post.content %}
-				<a href="{{ post.url | url }}" class="continue-reading">Continue reading</a>
+			{% if (excerpt | string) != (post.body | string) %}
+				<a href="{{ post | url }}" class="continue-reading">Continue reading</a>
 			{% endif %}
 		</article>
-	{% endfor %}
+	{%- endfor %}
 
-	{% if paginator.page_trail %}
+	{% if this.pagination and this.pagination.pages > 1 %}
 		{% include "includes/pagination.html" %}
 	{% endif %}
 </div>
+{% endblock content %}

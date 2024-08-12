@@ -1,15 +1,9 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>TODO - Blog Archive</h1>
+{% extends "archive.html" %}
 
-{{ this.body }}
+{% block article_type -%}
+	BlogPosting
+{%- endblock article_type %}
 
-<ol>
-  {% for child in this.pagination.items %}
-   <li><a href="{{ child | url}}">{{ child.title }}</a></li>
-  {% endfor %}
-</ol>
-{% if this.pagination and this.pagination.pages > 1 %}
-	{% include "includes/pagination.html" %}
-{% endif %}
-{% endblock content %}
+{#% block post_header %}
+	{% include "includes/tags.html" %}
+{% endblock post_header %#}
