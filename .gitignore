@@ -1,5 +1,3 @@
 _site
 # Compiled files
 assets/css/*.scss.css
-# temp
-content/
