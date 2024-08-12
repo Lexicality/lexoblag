@@ -1,27 +1,17 @@
 <footer id="page-footer">
 	<nav aria-label="footer links">
 		<ul id="footer-links">
+			{%- for path in bag("footer", "pages") if site.get(path) and site.get(path).is_visible %}
 			<li>
-				<a href="{{ '/blog' | url }}">Blog</a>
+				{%- set page = site.get(path) %}
+				<a href="{{ page | url }}">{{ page.title }}</a>
 			</li>
+			{%- endfor %}
+			{%- for (name, url) in bag("footer", "links").items() %}
 			<li>
-				<a href="{{ '/CV' | url }}">CV</a>
+				<a href="{{ url }}">{{ name }}</a>
 			</li>
-			<li>
-				<a href="mailto:{{ bag('footer', 'email') }}">Email</a>
-			</li>
-			<li>
-				<a href="https://twitter.com/{{ bag('footer', 'twitter_username') }}">Twitter</a>
-			</li>
-			<li>
-				<a href="https://keybase.io/{{ bag('footer', 'keybase_username') }}">Keybase</a>
-			</li>
-			<li>
-				<a href="https://github.com/{{ bag('footer', 'github_username') }}">GitHub</a>
-			</li>
-			<li>
-				<a href="http://steamcommunity.com/id/{{ bag('footer', 'steam_username') }}">Steam</a>
-			</li>
+			{%- endfor %}
 		</ul>
 	</nav>
 </footer>
