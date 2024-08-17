@@ -1,3 +1,6 @@
 [submodule "content"]
 	path = content
 	url = git@github.com:Lexicality/website.git
+[submodule "packages/lektor-git-timestamp"]
+	path = packages/lektor-git-timestamp
+	url = https://github.com/Lexicality/lektor-git-timestamp.git
