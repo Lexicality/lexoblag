@@ -10,3 +10,10 @@ output_path = _site
 lektor-scss = 1.5.0
 lektor-slugify = 0.4
 lektor-jinja-helpers = 0.1.0
+
+[servers.website]
+name = My Website
+enabled = yes
+default = yes
+# Note to self: ensure your .ssh/config is set up correctly
+target = rsync://lektor-deploy-target/var/www/html/lex.me.uk
