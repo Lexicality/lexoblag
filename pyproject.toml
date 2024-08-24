@@ -7,7 +7,7 @@ license = "Apache-2.0"
 python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
-Lektor = "^3.3.11"
+Lektor = { version = "^3.4.0b12", allow-prereleases = true }
 
 [tool.poetry.group.lint.dependencies]
 ruff = "0.5.7"

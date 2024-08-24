@@ -11,12 +11,6 @@
 
     {% set projects = site.query("/projects").filter(F.featured == true).order_by("priority", "title") %}
 
-    {% if projects %}
-        <h2>My Projects</h2>
-        <p>I tend to start
-            <a href="{{ '/projects' | url }}">a lot of projects</a>, even if I don't see them all to completion.
-            <br>Here's a selection of older ones:
-        </p>
         <dl id="projects">
             {% for project in projects %}
                 <dt>
@@ -31,6 +25,5 @@
                 </dd>
             {% endfor %}
         </dl>
-    {% endif %}
 </div>
 {% endblock content %}
