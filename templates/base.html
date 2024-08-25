@@ -5,8 +5,13 @@
 	<title>{% include "includes/title.html" %}</title>
 
 	<link href="{{ '/favicon.ico' | asseturl }}" rel="icon">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
-	<style>@media (prefers-color-scheme: dark){html,body{background: black;color:white}}</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- For browsers that support it, avoid the flash of white when the page loads -->
+	<meta name="color-scheme" content="light dark">
+	<!-- For browsers that don't support `color-scheme` but do support `prefers-color-scheme` (mostly safari) -->
+	<style>@media(prefers-color-scheme:dark){html,body{background:black;color:white}}</style>
+	<!-- Make the address bar teal in chrome & safari -->
+	<meta name="theme-color" content="#038387">
 
 	{% for file in ["modern-normalize-0.5.0.css" , "styles.scss.css" , "syntax.css"] %}
 		<link rel="stylesheet" type="text/css" href="{{ 'css/{}'.format(file) | asseturl }}">

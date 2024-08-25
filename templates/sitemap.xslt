@@ -14,7 +14,9 @@
 		<title>{{ this.title }}</title>
 		<link href="{{ '/favicon.ico' | asseturl }}" rel="icon" />
 		<meta content="width=device-width, initial-scale=1" name="viewport" />
-		<style><![CDATA[ @media (prefers-color-scheme:dark){html,body{background:black;color:white}}]]></style>
+		<meta name="color-scheme" content="light dark" />
+		<meta name="theme-color" content="#038387" />
+		<style><![CDATA[ @media(prefers-color-scheme:dark){html,body{background:black;color:white}}]]></style>
 		{% for file in ["modern-normalize-0.5.0.css", "styles.scss.css"] %}
 		<link rel="stylesheet" type="text/css" href="{{ 'css/{}'.format(file) | asseturl }}" />
 		{%- endfor %}

@@ -50,6 +50,9 @@ $colour-highlight: $c20;
 $colour-highlight-dark: $c90;
 
 :root {
+	// Let the browser know we've got dark mode
+	color-scheme: light dark;
+
 	// Light
 	--colour-bg: #{$colour-bg};
 	--colour-text: #{$colour-text};
