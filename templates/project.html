@@ -3,7 +3,7 @@
 {% from "macros/tech.html" import post_tech %}
 
 {% block post_header %}
-    <p id="project-description" itemprop="abstract">{{ this.blurb }}</p>
+    <p id="project-description" itemprop="abstract">{{ this.description }}</p>
 	{{ post_links(this) }}
 	{{ post_tech(this) }}
 {% endblock post_header %}

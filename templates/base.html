@@ -29,6 +29,9 @@
 	{%- endif -%}
 	">
 	{%- endif %}
+	{% if this.description -%}
+		<meta name="description" content="{{ this.description }}">
+	{%- endif %}
 
 	<!-- Prevent firefox rendering the page without css -->
 	<script> </script>
