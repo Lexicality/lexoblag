@@ -3,9 +3,8 @@
     <div class="post-technology">
     <strong class="label">Tech used:  </strong>
     <ul class="tech">
-        {%- for (key, version) in ye_post.tech.items() -%}
-            {%- set datas = bag("tech", key) -%}
-
+        {%- for (key, version) in ye_post.tech.items() %}
+            {% set datas = bag("tech", key) -%}
             <li class="item">
                 {%- if datas.url -%}
                     <a href="{{datas.url}}">
@@ -34,7 +33,7 @@
                     </a>
                 {%- endif -%}
             </li>
-        {%- endfor -%}
+        {%- endfor %}
     </ul>
 </div>
 {%- endif -%}

@@ -3,13 +3,10 @@
     <div class="post-links">
         <strong class="label">Links: </strong>
         <ul class="links">
-            {%- for (key, url) in ye_post.links.items() -%}
-                {%- set datas = bag("links", key) -%}
-
-                {{" "}}
+            {%- for (key, url) in ye_post.links.items() %}
+                {% set datas = bag("links", key) -%}
                 <li class="link">
-                    <a href="{{url}}">
-
+                    <a href="{{ url }}">
                         {%- if datas -%}
                             {{- datas -}}
                         {%- else -%}
@@ -17,7 +14,7 @@
                         {%- endif -%}
                     </a>
                 </li>
-            {%- endfor -%}
+            {%- endfor %}
         </ul>
     </div>
 {%- endif -%}

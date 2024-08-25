@@ -12,7 +12,6 @@
 
 	> .tech > .item {
 		display: inline;
-		padding: 0.2em;
 
 		&:not(:last-child)::after {
 			content: ",";

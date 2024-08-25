@@ -1,17 +1,13 @@
 <nav aria-label="page navigation" id="pagination-container">
-	{% set no_prev = not this.pagination.has_prev %}
-	{% set no_next = not this.pagination.has_next %}
+	{% set no_prev = not this.pagination.has_prev -%}
+	{%- set no_next = not this.pagination.has_next -%}
 	<a
-		class="
-			pagination-link
-			-prev
-			{% if no_prev %}-disabled{% endif %}
-		"
+		class="pagination-link -prev {% if no_prev %}-disabled{% endif %}"
 		title="Previous Page"
-		{% if no_prev %}
+		{% if no_prev -%}
 			aria-disabled="true"
 			onclick="return false"
-		{% endif %}
+		{% endif -%}
 		href="{{ this.pagination.prev | default(this.pagination.current, true) | url }}"
 	>
 		{{- "&larr; Previous" | safe -}}
@@ -20,37 +16,27 @@
 		{%- for page in this.pagination.iter_pages(1, 1, 1, 1) %}
 			{% if page -%}
 				{%- set current = page == this.pagination.page -%}
-				<li class="
-					{#--#}
-					pagination-item
-					{%- if current %} -current{% endif -%}
-				">
-					{#--#}
+				<li class="pagination-item {% if current %}-current{% endif %}">
 					<a
 						href="{{ '@{}'.format(page) | url }}"
 						title="page {{ page }}"
-						{% if current %}aria-current="page"{% endif %}
+						{% if current %}aria-current="page"{% endif -%}
 					>
 						{{- "{:n}".format(page) -}}
 					</a>
-					{#--#}
 				</li>
 			{%- else -%}
 				<li class="pagination-item -hellip">&hellip;</li>
 			{%- endif -%}
-		{%- endfor -%}
+		{%- endfor %}
 	</ol>
 	<a
-		class="
-			pagination-link
-			-next
-			{% if no_next %}-disabled{% endif %}
-		"
+		class="pagination-link -next {% if no_next %}-disabled{% endif %}"
 		title="Next Page"
-		{% if no_next %}
+		{% if no_next -%}
 			aria-disabled="true"
 			onclick="return false"
-		{% endif %}
+		{% endif -%}
 		href="{{ this.pagination.next | default(this.pagination.current, true) | url }}"
 	>
 		{{- "Next &rarr;" | safe -}}

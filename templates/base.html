@@ -12,14 +12,12 @@
 	<style>@media(prefers-color-scheme:dark){html,body{background:black;color:white}}</style>
 	<!-- Make the address bar teal in chrome & safari -->
 	<meta name="theme-color" content="#038387">
-
-	{% for file in ["modern-normalize-0.5.0.css" , "styles.scss.css" , "syntax.css"] %}
+	{% for file in ["modern-normalize-0.5.0.css" , "styles.scss.css" , "syntax.css"] -%}
 		<link rel="stylesheet" type="text/css" href="{{ 'css/{}'.format(file) | asseturl }}">
 	{% endfor %}
-
-	{# {% if page.in_blog %}
+	{#- {% if page.in_blog %}
 		{% feed_meta %}
-	{% endif %} #}
+	{% endif %} -#}
 	{%- if not this.no_canonical %}
 	<link rel="canonical" href="
 	{%- if this.canonical_url -%}
@@ -31,32 +29,30 @@
 	{%- endif %}
 	{% if this.description -%}
 		<meta name="description" content="{{ this.description }}">
-	{%- endif %}
-
+	{% endif -%}
 	<!-- Prevent firefox rendering the page without css -->
 	<script> </script>
 </head>
 
 <body class="{{ this.layout }}">
 	<main id="main">
-		{% block main %}
-		{% block page_header_wrapper %}
+		{%- block main -%}
+		{%- block page_header_wrapper %}
 			<header id="page-header">
-				{% block page_header %}
-				{% if this.show_breadcrumbs != false %}
+				{% block page_header -%}
+				{%- if this.show_breadcrumbs != false -%}
 					{% include "includes/breadcrumbs.html" %}
-				{% endif %}
-				{% endblock page_header %}
+				{%- endif -%}
+				{%- endblock page_header -%}
 			</header>
-		{% endblock page_header_wrapper %}
-
+		{%- endblock page_header_wrapper -%}
 
 		<section id="page-content">
-			{% block content %}{% endblock %}
+			{%- block content %}{% endblock -%}
 		</section>
 
-		{% include "includes/footer.html" %}
-		{% endblock main %}
+		{%- include "includes/footer.html" -%}
+		{%- endblock main -%}
 	</main>
 </body>
 
