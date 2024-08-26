@@ -9,7 +9,7 @@
 	<xsl:output method="html" indent="yes" encoding="UTF-8" />
 	<xsl:template match="/">
 {%- set root = site.root %}
-<html lang="en_GB">
+<html lang="en-GB">
 	<head>
 		<title>{{ this.title }}</title>
 		<link href="{{ '/favicon.ico' | asseturl }}" rel="icon" />
