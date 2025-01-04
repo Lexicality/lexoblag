@@ -9,7 +9,7 @@
 			{%- endfor %}
 			{%- for (name, url) in bag("footer", "links").items() %}
 			<li>
-				<a href="{{ url }}">{{ name }}</a>
+				<a href="{{ url }}" rel="me">{{ name }}</a>
 			</li>
 			{%- endfor %}
 		</ul>
